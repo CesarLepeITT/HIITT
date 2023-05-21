@@ -29,7 +29,7 @@ namespace GimApp
         {
             if (NavListBox.SelectedIndex == 0)
             {
-                // Main.Content = new Resumen();
+                // Main.Content = new ResumenPag();
             }
             if (NavListBox.SelectedIndex == 1)
             {
@@ -37,11 +37,11 @@ namespace GimApp
             }
             if (NavListBox.SelectedIndex == 2)
             {
-                //Main.Content = new Rutinas();
+                //Main.Content = new RutinasPag();
             }
             if (NavListBox.SelectedIndex == 3)
             {
-               // Main.Content = new Calendario();
+               // Main.Content = new CalendarioPag();
             }
         }
 

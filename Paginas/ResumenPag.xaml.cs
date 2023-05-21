@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GimApp.Paginas
+namespace GimApp
 {
     /// <summary>
-    /// Lógica de interacción para Rutinas.xaml
+    /// Lógica de interacción para ResumenPag.xaml
     /// </summary>
-    public partial class Rutinas : Page
+    public partial class ResumenPag : Page
     {
-        public Rutinas()
+        public ResumenPag()
         {
             InitializeComponent();
         }

@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GimApp
+namespace HIITT.Paginas
 {
     /// <summary>
-    /// Lógica de interacción para Resumen.xaml
+    /// Lógica de interacción para AgregarEjercicioPag.xaml
     /// </summary>
-    public partial class Resumen : Page
+    public partial class AgregarEjercicioPag : Window
     {
-        public Resumen()
+        public AgregarEjercicioPag()
         {
             InitializeComponent();
         }

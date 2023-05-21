@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace GimApp
 {
     /// <summary>
-    /// Lógica de interacción para Calendario.xaml
+    /// Lógica de interacción para CalendarioPag.xaml
     /// </summary>
-    public partial class Calendario : Page
+    public partial class CalendarioPag : Page
     {
-        public Calendario()
+        public CalendarioPag()
         {
             InitializeComponent();
         }
