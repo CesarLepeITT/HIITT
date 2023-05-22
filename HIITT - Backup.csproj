@@ -8,9 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Clases\NewFolder\NewFolder\" />
-    <Folder Include="saves\saves_rutinas\" />
-    <Folder Include="saves\saves_ejercicios\" />
+    <Folder Include="Clases\da\" />
   </ItemGroup>
 
 </Project>

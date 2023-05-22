@@ -31,27 +31,28 @@ namespace GimApp.Clases
             grupoMuscular ??= "Sin especificar";
             GrupoMuscular = grupoMuscular;
 
-            //Definir el path
-            //C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\saves\saves_ejercicios\
-
-            PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\saves\saves_ejercicios\{Nombre}.txt";
-
-            while (File.Exists(PathTxt))
+            try
             {
-                int contador = 1;
-                PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\saves\saves_ejercicios\{Nombre}({contador}).txt";
-                contador++;
-            }
-            using (FileStream oFS = File.Create(PathTxt))
-            {
-                Byte[] texto = new UTF8Encoding(true).GetBytes(ToString());
-                oFS.Write(texto, 0, texto.Length);
-            }
-            using (FileStream oFS = File.Create(PathTxt))
-            {
+                //Definir el path
+                PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\Clases\NewFolder\{Nombre}.txt";
 
+                while (File.Exists(PathTxt))//Revisa que no haya un texto con el mismo path
+                {
+                    //Si el txto existe le da un (numero) para que sea otro path distinto
+                    int contador = 1;
+                    PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\Clases\NewFolder\{Nombre}({contador}).txt";
+                    contador++;
+                }
+                using (FileStream oFS = File.Create(PathTxt)) //Crea un archivo en el path que se le dio
+                {
+                    Byte[] texto = new UTF8Encoding(true).GetBytes(ToString()); //Codifica el objeto utf8
+                    oFS.Write(texto, 0, texto.Length); //Escribe el objeto en el txt
+                }
             }
-
+            catch (Exception)
+            {
+                Console.WriteLine("No se pudo crear el archivo.");
+            }
         }
 
         public string Nombre

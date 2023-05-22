@@ -9,6 +9,13 @@
       Title="AgregarRutinaPag">
 
     <Grid>
-        
+        <StackPanel x:Name="sckpARMain">
+            <TextBlock Text="Nombre (str)"/> 
+            <TextBox x:Name="tbARNombre"/>
+            <TextBlock Text="Dia de realizacion"/>
+            <ComboBox x:Name="cbRADia">
+                <ComboBoxItem/>
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </Page>

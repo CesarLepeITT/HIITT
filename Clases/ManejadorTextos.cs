@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace HIITT.Clases
@@ -24,7 +26,19 @@ namespace HIITT.Clases
         //Devuelve todos los datos del ejercicio
         public string LeerEjercicio(string path) { return ""; } 
         //Devuelve solo el nombre del ejercicio
-        public string LeerNombreEjercicio() { return ""; }
+        public string LeerNombreEjercicio(string path) 
+        {
+            string nombre = "";
+            using(StreamReader oSR = File.OpenText(path))
+            {
+                string s = "";
+                while((s = oSR.ReadLine()) != null)
+                {
+                    nombre += Regex.IsMatch(s, @"\w+$");
+                }
+                return "";
+            }
+        }
         //Devuelve solo las series del ejercicio
         public string LeerSeriesEjercicio() { return ""; }
         //Y asi suscesivamnete
@@ -33,8 +47,6 @@ namespace HIITT.Clases
         public string LeerUnidadPesoEjercicio() { return ""; }
         public string LeerMaquinariaEjercicio() { return ""; }
         public string LeerGrupoMuscularEjercicio() { return ""; }
-
-
 
         // De un archivo txt lee el texto que tiene dentro como los datos de una rutina
 
