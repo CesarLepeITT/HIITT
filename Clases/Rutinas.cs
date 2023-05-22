@@ -43,7 +43,7 @@ namespace GimApp.Clases
 
             for (int pos = 0; pos < _listaEjercicios.Length; pos++) 
             {
-                if (_listaEjercicios[pos].Path == ejercicio.Path)
+                if (_listaEjercicios[pos].PathTxt == ejercicio.PathTxt)
                 {
                     for (int i = pos;i < _listaEjercicios.Length; i++)
                     {

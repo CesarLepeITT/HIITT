@@ -15,7 +15,7 @@ namespace GimApp.Clases
         {
 
             //nombreEjercicio ??= "Ejercicio";
-            if (nombreEjercicio == string.Empty)
+            if (nombreEjercicio == "")
                 nombreEjercicio = "Ejercicio";
             Nombre = nombreEjercicio;
 
@@ -32,18 +32,24 @@ namespace GimApp.Clases
             GrupoMuscular = grupoMuscular;
 
             //Definir el path
-            Path = $@"C:\Users\Linux-1\Source\Repos\HIITT\saves\saves_ejercicios\{Nombre}.txt";
+            //C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\saves\saves_ejercicios\
 
-            while (File.Exists(Path))
+            PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\saves\saves_ejercicios\{Nombre}.txt";
+
+            while (File.Exists(PathTxt))
             {
                 int contador = 1;
-                Path = $@"C:\Users\Linux-1\Source\Repos\HIITT\saves\saves_ejercicios\{Nombre}({contador}).txt";
+                PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\saves\saves_ejercicios\{Nombre}({contador}).txt";
                 contador++;
             }
-            using (FileStream oFS = File.Create(Path))
+            using (FileStream oFS = File.Create(PathTxt))
             {
                 Byte[] texto = new UTF8Encoding(true).GetBytes(ToString());
                 oFS.Write(texto, 0, texto.Length);
+            }
+            using (FileStream oFS = File.Create(PathTxt))
+            {
+
             }
 
         }
@@ -84,10 +90,10 @@ namespace GimApp.Clases
             get { return _grupoMuscular; }
         }
 
-        public string Path
+        public string PathTxt
         {
-            set { _path = value; }
-            get { return _path; }
+            set { _pathTxt = value; }
+            get { return _pathTxt; }
         }
         public Peso CambiarUnidadesPeso(Peso peso, decimal cantidad)
         {
@@ -110,7 +116,7 @@ namespace GimApp.Clases
 
         public void EditarEjercicio(string nombreEjercicio, int series, int repeticiones, Peso peso, string maquinaria, string grupoMuscular, string rutinaContenedora)
         {
-            File.Delete(Path);
+            File.Delete(PathTxt);
 
             nombreEjercicio ??= "Ejercicio";
             Nombre = nombreEjercicio;
@@ -129,11 +135,11 @@ namespace GimApp.Clases
 
             Ejercicios aux = new Ejercicios(Nombre, Series, Repeticiones, Peso, Maquinaria, GrupoMuscular);
 
-            Path = aux.Path;
+            PathTxt = aux.PathTxt;
 
         }
 
-        private string _path;
+        private string _pathTxt;
         private string? _nombre;
         private int _series;
         private int _repeticiones;

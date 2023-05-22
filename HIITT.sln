@@ -5,8 +5,6 @@ VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HIITT", "HIITT.csproj", "{CBB437A4-F5D5-4DFE-B527-DC0BDCC6E6D2}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Carpeta pru", "Carpeta pru", "{19634B0D-E1C2-4C59-A44E-669EE4E52A8E}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
