@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using HIITT.Clases;
 
 namespace HIITT.Paginas
 {
@@ -22,6 +23,14 @@ namespace HIITT.Paginas
         public AgregarEjercicioPag()
         {
             InitializeComponent();
+        }
+
+        private void TextChangedSoloLetras(object sender, TextChangedEventArgs e)
+        {
+
+            if (!Verificador.SoloLetras(tbAENombre.Text))
+                tbAENombre.Text= "";
+         
         }
     }
 }

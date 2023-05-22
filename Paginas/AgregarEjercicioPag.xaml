@@ -7,6 +7,28 @@
         mc:Ignorable="d"
         Title="AgregarEjercicioPag" Height="450" Width="800">
     <Grid>
-
+        <StackPanel>
+            <TextBlock Text="Nombre (str)"/>
+            <TextBox x:Name="tbAENombre" TextChanged="TextChangedSoloLetras" />
+            <TextBlock Text="Repeticiones (int)"/>
+            <TextBox x:Name="tbAERepeticiones"/>
+            <TextBlock Text="Series (int)"/>
+            <TextBox x:Name="tbAESeries"/>
+            <TextBlock Text="Peso (decimal)"/>
+            <TextBox x:Name="tbAEPesoCantidad"/>
+            <ComboBox x:Name="cbAEUnidades">
+                <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
+                <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
+            </ComboBox>
+            <TextBox x:Name="tbAEPeso"/>
+            <TextBlock Text="Maquinaria (str)"/>
+            <TextBox x:Name="tbAEMaquinaria"/>
+            <TextBlock Text="Grupo muscular (str)"/>
+            <TextBox x:Name="tbAEGrupoMuscular"/>
+            <TextBlock Text="Rutina Contenedora"/>
+            <ComboBox x:Name="cbAERutinaContenedora">
+                <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
+            </ComboBox>
+        </StackPanel>
     </Grid>
 </Window>
