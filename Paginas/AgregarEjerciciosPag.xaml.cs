@@ -26,6 +26,7 @@ namespace HIITT.Paginas
         public AgregarEjerciciosPag()
         {
             InitializeComponent();
+
         }
         string _nombreEjercicio;
         int _series; 
@@ -49,6 +50,7 @@ namespace HIITT.Paginas
             gridError.Visibility = Visibility.Visible;
             sender.SelectedIndex = -1;
         }
+
         private void AsignarVariables()
         {
             _nombreEjercicio = tbAENombre.Text;
@@ -111,7 +113,6 @@ namespace HIITT.Paginas
             if (RevisarSiTodoCorrecto())
             {
                 new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular);
-                AgregarEjerciciosPag = new AgregarEjerciciosPag();
             }
         }
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo

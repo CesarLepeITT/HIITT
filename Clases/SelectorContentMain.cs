@@ -13,7 +13,7 @@ namespace HIITT.Clases
 
         public static void CambiarMainContent(Page page)
         {
-            MainPag.Content = page;
+           // MainPag.Content = page;
         }
 
     }
