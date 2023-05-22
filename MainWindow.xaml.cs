@@ -15,7 +15,7 @@ namespace GimApp
         public MainWindow()
         {
             InitializeComponent();
-            Main.Content = new ResumenPag();
+            MainPag.Content = new ResumenPag();
         }
 
         private void Main_Navigated(object sender, NavigationEventArgs e)
@@ -32,26 +32,26 @@ namespace GimApp
         {
             if (NavListBox.SelectedIndex == 0)
             {
-                Main.Content = new ResumenPag();
+                MainPag.Content = new ResumenPag();
             }
             if (NavListBox.SelectedIndex == 1)
             {
-               Main.Content = new EjerciciosPag();
+               MainPag.Content = new EjerciciosPag();
             }
             if (NavListBox.SelectedIndex == 2)
             {
-                Main.Content = new RutinasPag();
+                MainPag.Content = new RutinasPag();
             }
             if (NavListBox.SelectedIndex == 3)
             {
-               Main.Content = new CalendarioPag();
+               MainPag.Content = new CalendarioPag();
             }
         }
 
         private void AgregarEjercicio_Click(object sender, RoutedEventArgs e)
         {
 
-            Main.Content = new AgregarEjercicioPag();
+            MainPag.Content = new AgregarEjerciciosPag();
 
         }
     }

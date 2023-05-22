@@ -44,7 +44,7 @@
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
-        <Frame x:Name="Main" Navigated="Main_Navigated" NavigationUIVisibility="Hidden" Grid.Column="1"/>
+        <Frame x:Name="MainPag" Navigated="Main_Navigated" NavigationUIVisibility="Hidden" Grid.Column="1"/>
         <Button x:Name="btnAgregarEjercicio"
                 Grid.Column="1"
                 Height="30"

@@ -11,26 +11,17 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using HIITT.Clases;
 
 namespace HIITT.Paginas
 {
     /// <summary>
-    /// Lógica de interacción para AgregarEjercicioPag.xaml
+    /// Lógica de interacción para Error.xaml
     /// </summary>
-    public partial class AgregarEjercicioPag : Window
+    public partial class Error : Window
     {
-        public AgregarEjercicioPag()
+        public Error()
         {
             InitializeComponent();
-        }
-
-        private void TextChangedSoloLetras(object sender, TextChangedEventArgs e)
-        {
-
-            if (!Verificador.SoloLetras(tbAENombre.Text))
-                tbAENombre.Text= "";
-         
         }
     }
 }
