@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using GimApp;
 using GimApp.Clases;
 using HIITT.Clases;
 
@@ -33,28 +34,48 @@ namespace HIITT.Paginas
         Peso _peso;
         string _maquinaria;
         string _grupoMuscular;
-        string _rutinaContenedora;
 
+        private void DesplegarPaginaError(string texto, TextBox sender)
+        {
+            sckpMainStackPanel.IsEnabled = false;
+            ErrorGridText.Text = texto;
+            gridError.Visibility = Visibility.Visible;
+            sender.Text = "";
+        }
+        private void DesplegarPaginaError(string texto, ComboBox sender)
+        {
+            sckpMainStackPanel.IsEnabled = false;
+            ErrorGridText.Text = texto;
+            gridError.Visibility = Visibility.Visible;
+            sender.SelectedIndex = -1;
+        }
         private void AsignarVariables()
         {
-
             _nombreEjercicio = tbAENombre.Text;
-            try { _series = int.Parse(tbAESeries.Text); }
-            catch (ArgumentNullException)
-            {
-                gridMainGrid.IsEnabled = false;
-                ErrorGridText.Text = "No has ingresado un valor para la cantidad de series.";
-                gridError.Visibility= Visibility.Visible;
-                tbAESeries.Text = "";
+            try 
+            { 
+                _series = int.Parse(tbAESeries.Text);
+                if (!(_series > 0))
+                    throw new Exception();
             }
-            try { _repeticiones = int.Parse(tbAERepeticiones.Text); }
-            catch (ArgumentNullException)
-            {
-                gridMainGrid.IsEnabled = false;
-                ErrorGridText.Text = "No has ingresado un valor para la cantidad de repeticiones.";
-                gridError.Visibility = Visibility.Visible;
-                tbAERepeticiones.Text = "";
+            catch (Exception) { DesplegarPaginaError("No has ingresado un valor para la cantidad de series.", tbAESeries); }
+
+            try 
+            { 
+                _repeticiones = int.Parse(tbAERepeticiones.Text);
+                if (!(_series > 0))
+                    throw new Exception();
             }
+            catch (Exception) { DesplegarPaginaError("No has ingresado un valor para la cantidad de repeticiones.", tbAERepeticiones); }
+
+            try 
+            { 
+                _cantidadPeso = decimal.Parse(tbAEPesoCantidad.Text);
+                if (!(_series > 0))
+                    throw new Exception();
+            }
+            catch (Exception) { DesplegarPaginaError("No has ingresado un valor para la cantidad de peso.", tbAERepeticiones); }
+
             if (!(cbAEUnidades.SelectedIndex == -1))
             {
                 //Seleccionas KG
@@ -64,27 +85,34 @@ namespace HIITT.Paginas
                 if (cbAEUnidades.SelectedIndex == 1)
                     _peso = new Pesolbs(_cantidadPeso);
             }
-            else
-            {
-                //Terminar de agregar como funcina la seleccion de indices
-            }
+            else DesplegarPaginaError("Debes seleccionar un tipo de unidad.", cbAEUnidades);
+            _maquinaria = tbAEMaquinaria.Text;
+            _grupoMuscular = tbAEGrupoMuscular.Text;
 
-            string _maquinaria;
-            string _grupoMuscular;
-            string _rutinaContenedora;
+            if (cbAERutinaContenedora.SelectedIndex == -1) DesplegarPaginaError("Debes seleccionar una rutina.", cbAERutinaContenedora);
+            else { }// TODO: Agregar una manera de meter el nuevo ejercicio creado a una rutina
 
         }
-        //private void VerificarVariables()
-        //{
-        //    if()
 
-
-
-        //}
+        private bool RevisarSiTodoCorrecto()
+        {
+            if (_series > 0)
+                if (_repeticiones > 0)
+                    if (_cantidadPeso > 0)
+                        if (!(cbAEUnidades.SelectedIndex == -1))
+                            if (!(cbAERutinaContenedora.SelectedIndex == -1))
+                                return true;
+            return false; 
+        }
 
         private void btnAEAgregarEjercicio_Click(object sender, RoutedEventArgs e)
         {
-            var rutina = new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular, _rutinaContenedora);
+            AsignarVariables();
+            if (RevisarSiTodoCorrecto())
+            {
+                new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular);
+                AgregarEjerciciosPag = new AgregarEjerciciosPag();
+            }
         }
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo
         private void tbStr_TextChanged(object sender, TextChangedEventArgs e)
@@ -115,7 +143,15 @@ namespace HIITT.Paginas
         {
             gridError.Visibility = Visibility.Hidden;
             ErrorGridText.Text = string.Empty;
-            gridMainGrid.IsEnabled = true;
+            sckpMainStackPanel.IsEnabled = true;
+
+            tbAENombre.Text = _nombreEjercicio;
+            if (_series>0) tbAESeries.Text = _series.ToString();
+            if (_repeticiones > 0) tbAERepeticiones.Text = _repeticiones.ToString();
+            if (_cantidadPeso > 0) tbAEPesoCantidad.Text = _cantidadPeso.ToString();
+            tbAEMaquinaria.Text = _maquinaria;
+            tbAEGrupoMuscular.Text = _grupoMuscular;
+
         }
     }
 }
