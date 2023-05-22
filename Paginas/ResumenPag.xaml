@@ -10,8 +10,8 @@
     <StackPanel x:Name="ResumenStackPanel">
         <TextBlock Text="Hoy"/>
         <Grid>
-            
             <Button></Button>
         </Grid>
+        <TextBlock x:Name="prueba" Height="30" />
     </StackPanel>
 </Page>

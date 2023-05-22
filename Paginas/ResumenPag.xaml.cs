@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GimApp.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,8 @@ namespace GimApp
         public ResumenPag()
         {
             InitializeComponent();
+            Ejercicios myej = new Ejercicios("prueba", 1, 1, new PesoKG(2), "", "");
+            prueba.Text = myej.PathTxt;
         }
     }
 }

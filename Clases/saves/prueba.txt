@@ -1,0 +1,7 @@
+Nombre = prueba
+ Series = 1
+Repeticiones = 1
+PesoCantidad = 2
+PesoUnidad = kg
+Maquiaria = 
+GrupoMuscular = 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace GimApp.Clases
@@ -30,17 +31,19 @@ namespace GimApp.Clases
 
             grupoMuscular ??= "Sin especificar";
             GrupoMuscular = grupoMuscular;
-
             try
             {
                 //Definir el path
-                PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\Clases\NewFolder\{Nombre}.txt";
-
+                Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\Clases\saves\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+                PathTxt= myUri.ToString();
+                PathTxt = PathTxt.Substring(8);
+                int contador = 1;
                 while (File.Exists(PathTxt))//Revisa que no haya un texto con el mismo path
                 {
                     //Si el txto existe le da un (numero) para que sea otro path distinto
-                    int contador = 1;
-                    PathTxt = $@"C:\Users\Linux-1\Source\Repos\CesarLepeITT\HIITT\Clases\NewFolder\{Nombre}({contador}).txt";
+                    PathTxt = myUri.ToString();
+                    PathTxt = PathTxt.Substring(8);
+                    PathTxt += $@"({contador}).txt";
                     contador++;
                 }
                 using (FileStream oFS = File.Create(PathTxt)) //Crea un archivo en el path que se le dio
@@ -51,7 +54,7 @@ namespace GimApp.Clases
             }
             catch (Exception)
             {
-                Console.WriteLine("No se pudo crear el archivo.");
+
             }
         }
 
