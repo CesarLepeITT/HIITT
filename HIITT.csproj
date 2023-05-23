@@ -13,10 +13,17 @@
     <None Remove="Clases\NewFolder\**" />
     <Page Remove="Clases\NewFolder\**" />
   </ItemGroup>
-
   <ItemGroup>
+    <Folder Include="Clases\saves\" />
     <Folder Include="saves\ejercicios\" />
     <Folder Include="saves\rutinas\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="calendario.png" />
+    <Resource Include="capacitacion.png" />
+    <Resource Include="gimnasio (1).png" />
+    <Resource Include="gimnasio (2).png" />
   </ItemGroup>
 
 </Project>

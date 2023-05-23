@@ -20,34 +20,38 @@
             <ListBox x:Name="NavListBox" SelectionChanged="NavItemSelection" SelectionMode="Single" FontFamily="Century Gothic" FontSize="14" Foreground="#072005" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBoxItem x:Name="ResumenListBoxItem">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25"/>
+                        <Image Height="25" Width="25" Source="/gimnasio (2).png"/>
                         <TextBlock Text="Resumen" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25"/>
+                        <Image Height="25" Width="25" Source="/gimnasio (1).png"/>
                         <TextBlock Text="Entrenar" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25"/>
+                        <Image Height="25" Width="25" Source="/capacitacion.png"/>
                         <TextBlock Text="Rutinas" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25"/>
+                        <Image Height="25" Width="25" Source="/calendario.png"/>
                         <TextBlock Text="Calendario" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
         <Frame x:Name="MainPag" Navigated="Main_Navigated" NavigationUIVisibility="Hidden" Grid.Column="1"/>
-        <Button x:Name="btnAgregarEjercicio" Width="25" Height="25"
+        <Button Style="{DynamicResource ButtonStyle1}"  Content=""
+                Name="btnAgregarEjercicio" Width="25" Height="25"
                 Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                Margin="0,0,65,65" Click="AgregarEjercicio_Click"
-                />
+                Margin="0,0,65,65" Click="AgregarEjercicio_Click">
+        </Button>
+
+
+       
     </Grid>
 </Window>
