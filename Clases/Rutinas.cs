@@ -29,21 +29,27 @@ namespace GimApp.Clases
             set { _dia = value; }
             get { return _dia; }
         }
-        public Ejercicios[] ListaEjercicios 
+        public string[] ListaEjercicios 
         {
             get { return _listaEjercicios; }
         }
 
-        public void AgregarEjercicio(Ejercicios ejercicio)
+        public void AgregarEjercicio(string nombreEjercicio)
         {
-            _listaEjercicios.Append(ejercicio);
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\Clases\saves\{nombreEjercicio}.txt", UriKind.RelativeOrAbsolute);
+            string pathTexto = myUri.ToString();
+            pathTexto = pathTexto.Substring(8);
+            _listaEjercicios.Append(pathTexto);
+        }        
+        public void AgregarEjercicioPath(string path)
+        {
+            _listaEjercicios.Append(path);
         }
-        public void EliminarEjercicio(Ejercicios ejercicio)
+        public void EliminarEjercicio(string path)
         {
-
             for (int pos = 0; pos < _listaEjercicios.Length; pos++) 
             {
-                if (_listaEjercicios[pos].PathTxt == ejercicio.PathTxt)
+                if (_listaEjercicios[pos] == ejercicio.Nombre)
                 {
                     for (int i = pos;i < _listaEjercicios.Length; i++)
                     {
@@ -57,7 +63,7 @@ namespace GimApp.Clases
         }
 
         private string? _nombre;
-        private Ejercicios[] _listaEjercicios = new Ejercicios[1];
+        private string[] _listaEjercicios;
         private DayOfWeek _dia;
     }
 }

@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using static System.Net.Mime.MediaTypeNames;
@@ -51,6 +52,12 @@ namespace GimApp.Clases
                     Byte[] texto = new UTF8Encoding(true).GetBytes(ToString()); //Codifica el objeto utf8
                     oFS.Write(texto, 0, texto.Length); //Escribe el objeto en el txt
                 }
+
+                // Hacer que el Nombre del ejercicio sea igual al nombre del archivo txt
+                //
+                // Ej ejercicio(1).txt
+                // Nombre = ejercicio(1)
+                //
             }
             catch (Exception)
             {

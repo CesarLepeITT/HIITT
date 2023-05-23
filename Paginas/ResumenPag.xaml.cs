@@ -24,8 +24,6 @@ namespace GimApp
         public ResumenPag()
         {
             InitializeComponent();
-            Ejercicios myej = new Ejercicios("prueba", 1, 1, new PesoKG(2), "", "");
-            prueba.Text = myej.PathTxt;
         }
     }
 }
