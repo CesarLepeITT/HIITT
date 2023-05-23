@@ -9,24 +9,14 @@
 
   <ItemGroup>
     <Compile Remove="Clases\NewFolder\**" />
-    <Compile Remove="saves\**" />
     <EmbeddedResource Remove="Clases\NewFolder\**" />
-    <EmbeddedResource Remove="saves\**" />
     <None Remove="Clases\NewFolder\**" />
-    <None Remove="saves\**" />
     <Page Remove="Clases\NewFolder\**" />
-    <Page Remove="saves\**" />
   </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="calendario.png" />
-    <None Remove="capacitacion.png" />
-    <None Remove="gimnasio %281%29.png" />
-    <None Remove="gimnasio %282%29.png" />
-  </ItemGroup>
-
   <ItemGroup>
     <Folder Include="Clases\saves\" />
+    <Folder Include="saves\ejercicios\" />
+    <Folder Include="saves\rutinas\" />
   </ItemGroup>
 
   <ItemGroup>
