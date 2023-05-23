@@ -19,7 +19,21 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="calendario.png" />
+    <None Remove="capacitacion.png" />
+    <None Remove="gimnasio %281%29.png" />
+    <None Remove="gimnasio %282%29.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Clases\saves\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="calendario.png" />
+    <Resource Include="capacitacion.png" />
+    <Resource Include="gimnasio (1).png" />
+    <Resource Include="gimnasio (2).png" />
   </ItemGroup>
 
 </Project>
