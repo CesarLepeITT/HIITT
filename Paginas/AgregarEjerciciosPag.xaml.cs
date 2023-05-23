@@ -26,7 +26,18 @@ namespace HIITT.Paginas
         public AgregarEjerciciosPag(Frame MainFrame)
         {
             InitializeComponent();
-            _MainFrame = MainFrame; 
+            _MainFrame = MainFrame;
+
+            string[] rutinasPathList = ManejadorTextos.RutinasPathList();
+            if (rutinasPathList.Length > 0)
+            {
+                foreach (string f in ManejadorTextos.RutinasPathList())
+                {
+                    ComboBoxItem nombreRutina = new ComboBoxItem();
+                    nombreRutina.Content = ManejadorTextos.LeerNombreRutina(f);
+                    cbAERutinaContenedora.Items.Add(nombreRutina);
+                }
+            }
         }
         Frame _MainFrame;
         string _nombreEjercicio;
@@ -160,6 +171,10 @@ namespace HIITT.Paginas
         {
             if (cbAERutinaContenedora.SelectedIndex == 0)
                 _MainFrame.Content = new AgregarRutinaPag();
+            if(cbAERutinaContenedora.SelectedIndex > 0)
+            {
+                //Rutinas rutina = new Rutinas();
+            }
         }
     }
 }
