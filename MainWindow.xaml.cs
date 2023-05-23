@@ -17,7 +17,7 @@ namespace GimApp
         public MainWindow()
         {
             InitializeComponent();
-            MainPag.Content = new ResumenPag();
+            NavListBox.SelectedIndex = 0;
         }
 
         private void Main_Navigated(object sender, NavigationEventArgs e)

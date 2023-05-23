@@ -20,11 +20,13 @@ namespace HIITT.Clases
         PesoUnidad = unidadpesoingresad
         GrupoMuscular = grupomuscularingresado
          */
-
-
-        // De un archivo txt lee el texto que tiene dentro como los datos de un ejercicio
-        // Puedes darle el path del archivo o el nombre del archivo y que te busque por acad clase el path
-        //Devuelve todos los datos del ejercicio
+        public string[] EjerciciosPathList()
+        {
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\", UriKind.RelativeOrAbsolute);
+            string path = myUri.ToString();
+            path = path.Substring(8);
+            return Directory.GetFiles(path);
+        }
         public  string LeerEjercicio(string path)
         {
             string ejercicio = string.Empty;
@@ -103,135 +105,168 @@ namespace HIITT.Clases
         }
 
         //Y asi suscesivamnete
-      public int LeerRepeticionesEjercicio(string path)
-{
-    int repeticiones = 0;
+    public int LeerRepeticionesEjercicio(string path)
+    {
+        int repeticiones = 0;
 
    
-        using (StreamReader reader = new StreamReader(path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            using (StreamReader reader = new StreamReader(path))
             {
-                if (line.StartsWith("Repeticiones"))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    Match match = Regex.Match(line, @"=(\d+)$");
-                    if (match.Success)
+                    if (line.StartsWith("Repeticiones"))
                     {
-                        repeticiones = int.Parse(match.Groups[1].Value);
+                        Match match = Regex.Match(line, @"=(\d+)$");
+                        if (match.Success)
+                        {
+                            repeticiones = int.Parse(match.Groups[1].Value);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
-        }
    
-    return repeticiones;
-}
+        return repeticiones;
+    }
 
-public int LeerCantidadPesoEjercicio(string path)
-{
-    int cantidadPeso = 0;
+    public int LeerCantidadPesoEjercicio(string path)
+    {
+        int cantidadPeso = 0;
 
-        using (StreamReader reader = new StreamReader(path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            using (StreamReader reader = new StreamReader(path))
             {
-                if (line.StartsWith("PesoCantidad"))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    Match match = Regex.Match(line, @"=(\d+)$");
-                    if (match.Success)
+                    if (line.StartsWith("PesoCantidad"))
                     {
-                        cantidadPeso = int.Parse(match.Groups[1].Value);
+                        Match match = Regex.Match(line, @"=(\d+)$");
+                        if (match.Success)
+                        {
+                            cantidadPeso = int.Parse(match.Groups[1].Value);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
-        }
   
 
-    return cantidadPeso;
-}
+        return cantidadPeso;
+    }
 
-public int LeerUnidadPesoEjercicio(string path)
-{
-    int unidadPeso = 0;
+    public int LeerUnidadPesoEjercicio(string path)
+    {
+        int unidadPeso = 0;
 
     
-        using (StreamReader reader = new StreamReader(path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            using (StreamReader reader = new StreamReader(path))
             {
-                if (line.StartsWith("PesoUnidad"))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    Match match = Regex.Match(line, @"=(\d+)$");
-                    if (match.Success)
+                    if (line.StartsWith("PesoUnidad"))
                     {
-                        unidadPeso = int.Parse(match.Groups[1].Value);
+                        Match match = Regex.Match(line, @"=(\d+)$");
+                        if (match.Success)
+                        {
+                            unidadPeso = int.Parse(match.Groups[1].Value);
+                        }
+                        break;
                     }
-                    break;
                 }
             }
-        }
     
 
-    return unidadPeso;
-}
+        return unidadPeso;
+    }
 
-public string LeerMaquinariaEjercicio(string path)
-{
-    string maquinaria = string.Empty;
+    public string LeerMaquinariaEjercicio(string path)
+    {
+        string maquinaria = string.Empty;
 
    
-        using (StreamReader reader = new StreamReader(path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+            using (StreamReader reader = new StreamReader(path))
             {
-                if (line.StartsWith("Maquinaria"))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    Match match = Regex.Match(line, @"🙁.*)$");
-                    if (match.Success)
+                    if (line.StartsWith("Maquinaria"))
                     {
-                        maquinaria = match.Groups[1].Value.Trim();
+                        Match match = Regex.Match(line, @"🙁.*)$");
+                        if (match.Success)
+                        {
+                            maquinaria = match.Groups[1].Value.Trim();
+                        }
+                        break;
                     }
-                    break;
                 }
             }
-        }
    
 
-    return maquinaria;
-}
+        return maquinaria;
+    }
 
-public string LeerGrupoMuscularEjercicio(string path)
-{
-    string grupoMuscular = string.Empty;
+    public string LeerGrupoMuscularEjercicio(string path)
+    {
+        string grupoMuscular = string.Empty;
 
-     using (StreamReader reader = new StreamReader(path))
-        {
-            string line;
-            while ((line = reader.ReadLine()) != null)
+         using (StreamReader reader = new StreamReader(path))
             {
-                if (line.StartsWith("GrupoMuscular"))
+                string line;
+                while ((line = reader.ReadLine()) != null)
                 {
-                    Match match = Regex.Match(line, @"🙁.*)$");
-                    if (match.Success)
+                    if (line.StartsWith("GrupoMuscular"))
                     {
-                        grupoMuscular = match.Groups[1].Value.Trim();
+                        Match match = Regex.Match(line, @"🙁.*)$");
+                        if (match.Success)
+                        {
+                            grupoMuscular = match.Groups[1].Value.Trim();
+                        }
+                        break;
                     }
-                    break;
                 }
             }
-        }
    
-    return grupoMuscular;
-}
+                return grupoMuscular;
+        }
 
 
         // De un archivo txt lee el texto que tiene dentro como los datos de una rutina
+        // Estructura de un archivo txt de un ejercicio
+        /*
+        Nombre = nombreingresado
+        Dia = dia
+        Activa = True/False
+         */
+        public static string[] RutinasPathList()
+        {
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\", UriKind.RelativeOrAbsolute);
+            string path = myUri.ToString();
+            path = path.Substring(8);
+            return Directory.GetFiles(path);
+        }
+        public static string LeerRutina(string path) { return "No implementado"; }
 
+        public static string LeerNombreRutina(string path) 
+        {
+            string nombre = string.Empty;
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.StartsWith("Nombre"))
+                    {
+                        nombre = line.Remove(0, 8);
+                    }
+                }
+            }
+            return nombre;
+        }
 
+        public static string LeerDiaRutina(string path) { return "No implementado"; }
+
+        public static string LeerEsActivaRutina(string path) { return "No implementado"; }
     }
 }

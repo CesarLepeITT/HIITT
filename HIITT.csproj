@@ -9,17 +9,14 @@
 
   <ItemGroup>
     <Compile Remove="Clases\NewFolder\**" />
-    <Compile Remove="saves\**" />
     <EmbeddedResource Remove="Clases\NewFolder\**" />
-    <EmbeddedResource Remove="saves\**" />
     <None Remove="Clases\NewFolder\**" />
-    <None Remove="saves\**" />
     <Page Remove="Clases\NewFolder\**" />
-    <Page Remove="saves\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Clases\saves\" />
+    <Folder Include="saves\ejercicios\" />
+    <Folder Include="saves\rutinas\" />
   </ItemGroup>
 
 </Project>

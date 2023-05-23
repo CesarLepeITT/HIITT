@@ -35,7 +35,7 @@ namespace GimApp.Clases
             try
             {
                 //Definir el path
-                Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\Clases\saves\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+                Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\{Nombre}.txt", UriKind.RelativeOrAbsolute);
                 PathTxt= myUri.ToString();
                 PathTxt = PathTxt.Substring(8);
                 int contador = 1;

@@ -9,6 +9,8 @@
       Title="Rutinas">
 
     <Grid>
-        
+        <StackPanel x:Name="stckpMainStackPanel">
+
+        </StackPanel>
     </Grid>
 </Page>

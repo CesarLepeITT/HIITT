@@ -11,7 +11,7 @@ namespace GimApp.Clases
     {
         public Rutinas(string nombre, bool activa, DayOfWeek dia)
         {
-            if (nombre == "")
+            if (nombre == string.Empty)
                 nombre = "Rutina";
             Nombre = nombre;
             Activa = activa;
@@ -19,7 +19,7 @@ namespace GimApp.Clases
             try
             {
                 //Definir el path
-                Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\Clases\saves\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+                Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\{Nombre}.txt", UriKind.RelativeOrAbsolute);
                 PathRutina = myUri.ToString();
                 PathRutina = PathRutina.Substring(8);
                 int contador = 1;
@@ -103,11 +103,12 @@ namespace GimApp.Clases
                         ejercicios += $"{ListaEjercicios[i]}\n";
             }
             catch (Exception) { }
-            return $@"Nombre = {Nombre}\n" +
-                $@"Activa = {_activa.ToString()}" +
-                $@"Dia = {_dia.ToString()}" +
-                $@"{ejercicios}";
+            return $"Nombre = {Nombre}\n" +
+                $"Activa = {_activa.ToString()}\n" +
+                $"Dia = {_dia.ToString()}\n" +
+                $"{ejercicios}";
         }
+        public void EditarRutina(string nombre, bool activa, DayOfWeek dia) {  }
 
         private string? _nombre;
         private string[] _listaEjercicios;
