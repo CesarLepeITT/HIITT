@@ -42,7 +42,7 @@ namespace GimApp
             }
             if (NavListBox.SelectedIndex == 2)
             {
-                MainPag.Content = new RutinasPag();
+                MainPag.Content = new RutinasPag(MainPag);
             }
             if (NavListBox.SelectedIndex == 3)
             {

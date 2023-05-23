@@ -9,9 +9,9 @@ namespace GimApp.Clases
 {
     class Rutinas
     {
-        public Rutinas(string nombre, bool activa, DayOfWeek dia)
+        public Rutinas(string? nombre, bool activa, DayOfWeek dia)
         {
-            if (nombre == string.Empty)
+            if (nombre == null)
                 nombre = "Rutina";
             Nombre = nombre;
             Activa = activa;
@@ -67,14 +67,14 @@ namespace GimApp.Clases
             get { return _listaEjercicios; }
         }
 
-        public void AgregarEjercicio(string nombreEjercicio)
+        public void AgregarEjercicioARutina(string nombreEjercicio)
         {
-            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\Clases\saves\{nombreEjercicio}.txt", UriKind.RelativeOrAbsolute);
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\{nombreEjercicio}.txt", UriKind.RelativeOrAbsolute);
             string pathTexto = myUri.ToString();
             pathTexto = pathTexto.Substring(8);
             _listaEjercicios.Append(pathTexto);
         }        
-        public void AgregarEjercicioPath(string path)
+        public void AgregarEjercicioARutinaPath(string path)
         {
             _listaEjercicios.Append(path);
         }

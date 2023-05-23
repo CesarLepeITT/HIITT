@@ -14,14 +14,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace GimApp.Paginas
+namespace HIITT.Paginas.RutinasPag
 {
     /// <summary>
-    /// Lógica de interacción para RutinasPag.xaml
+    /// Lógica de interacción para RutinasPagNoElementos.xaml
     /// </summary>
-    public partial class RutinasPag : Page
+    public partial class RutinasPagNoElementos : Page
     {
-        public RutinasPag()
+        public RutinasPagNoElementos()
         {
             InitializeComponent();
 
