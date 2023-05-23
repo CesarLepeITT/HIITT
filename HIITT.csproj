@@ -6,13 +6,20 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
-
   <ItemGroup>
+    <Folder Include="Clases\saves\" />
     <Folder Include="saves\ejercicios\" />
     <Folder Include="saves\rutinas\" />
 
   <ItemGroup>
     <Folder Include="Clases\saves\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="calendario.png" />
+    <Resource Include="capacitacion.png" />
+    <Resource Include="gimnasio (1).png" />
+    <Resource Include="gimnasio (2).png" />
   </ItemGroup>
 
 </Project>
