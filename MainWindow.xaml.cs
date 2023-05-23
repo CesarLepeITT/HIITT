@@ -53,7 +53,7 @@ namespace GimApp
         private void AgregarEjercicio_Click(object sender, RoutedEventArgs e)
         {
 
-            MainPag.Content = new AgregarEjerciciosPag();
+            MainPag.Content = new AgregarEjerciciosPag(MainPag);
 
         }
 

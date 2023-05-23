@@ -23,11 +23,12 @@ namespace HIITT.Paginas
     /// </summary>
     public partial class AgregarEjerciciosPag : Page
     {
-        public AgregarEjerciciosPag()
+        public AgregarEjerciciosPag(Frame MainFrame)
         {
             InitializeComponent();
-
+            _MainFrame = MainFrame; 
         }
+        Frame _MainFrame;
         string _nombreEjercicio;
         int _series; 
         int _repeticiones;
@@ -153,6 +154,12 @@ namespace HIITT.Paginas
             tbAEMaquinaria.Text = _maquinaria;
             tbAEGrupoMuscular.Text = _grupoMuscular;
 
+        }
+
+        private void cbAERutinaContenedora_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbAERutinaContenedora.SelectedIndex == 0)
+                _MainFrame.Content = new AgregarRutinaPag();
         }
     }
 }
