@@ -17,11 +17,14 @@ namespace HIITT.Paginas
     /// <summary>
     /// Lógica de interacción para Error.xaml
     /// </summary>
-    public partial class Error : Window
+    public partial class ErrorPag : Window
     {
-        public Error()
+        public ErrorPag()
         {
             InitializeComponent();
         }
+
+
+
     }
 }

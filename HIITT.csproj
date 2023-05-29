@@ -6,11 +6,16 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
+
   <ItemGroup>
-    <Folder Include="Clases\saves\" />
-    <Folder Include="saves\ejercicios\" />
-    <Folder Include="saves\rutinas\" />
-    <Folder Include="Clases\saves\" />
+    <Compile Remove="Clases\saves\**" />
+    <EmbeddedResource Remove="Clases\saves\**" />
+    <None Remove="Clases\saves\**" />
+    <Page Remove="Clases\saves\**" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="saves\rutinas\rutinasInactivas\" />
+    <Folder Include="saves\rutinas\rutinasActivas\" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,6 +10,7 @@
 
     <Grid x:Name="gridMainGrid">
         <StackPanel x:Name="sckpMainStackPanel">
+            <TextBlock x:Name="cola"/>
             <TextBlock Text="Nombre (str)"/>
             <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged"/>
             <TextBlock Text="Repeticiones (int)"/>
@@ -27,12 +28,11 @@
             <TextBlock Text="Grupo muscular (str)"/>
             <TextBox x:Name="tbAEGrupoMuscular"/>
             <TextBlock Text="Rutina Contenedora"/>
-            <ComboBox x:Name="cbAERutinaContenedora" SelectionChanged="cbAERutinaContenedora_SelectionChanged">
+            <ComboBox x:Name="cbAERutinaContenedora"  SelectionChanged="cbAERutinaContenedora_SelectionChanged">
                 <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
             </ComboBox>
-            <Button x:Name="btnAEAgregarEjercicio" Content="Agregar ejercico" Height="30" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         </StackPanel>
-
+        <Button x:Name="btnAEAgregarEjercicio" Content="Agregar ejercico" Height="30" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
             <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
             <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>

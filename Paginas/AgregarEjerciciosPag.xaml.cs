@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
@@ -28,10 +30,20 @@ namespace HIITT.Paginas
             InitializeComponent();
             _MainFrame = MainFrame;
 
-            string[] rutinasPathList = ManejadorTextos.RutinasPathList();
+            string[] rutinasPathList = ManejadorTextos.RutinasActivasPathList();
             if (rutinasPathList.Length > 0)
             {
-                foreach (string f in ManejadorTextos.RutinasPathList())
+                foreach (string f in ManejadorTextos.RutinasActivasPathList())
+                {
+                    ComboBoxItem nombreRutina = new ComboBoxItem();
+                    nombreRutina.Content = ManejadorTextos.LeerNombreRutina(f);
+                    cbAERutinaContenedora.Items.Add(nombreRutina);
+                }
+            }
+            rutinasPathList = ManejadorTextos.RutinasInactivasPathList();
+            if (rutinasPathList.Length > 0)
+            {
+                foreach (string f in ManejadorTextos.RutinasInactivasPathList())
                 {
                     ComboBoxItem nombreRutina = new ComboBoxItem();
                     nombreRutina.Content = ManejadorTextos.LeerNombreRutina(f);
@@ -47,6 +59,7 @@ namespace HIITT.Paginas
         Peso _peso;
         string _maquinaria;
         string _grupoMuscular;
+        string _rutinaAlmacenadora;
 
         private void DesplegarPaginaError(string texto, TextBox sender)
         {
@@ -124,7 +137,9 @@ namespace HIITT.Paginas
             AsignarVariables();
             if (RevisarSiTodoCorrecto())
             {
-                new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular);
+                new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular, _rutinaAlmacenadora);
+               // Nombre de la rutina contenedora
+                string aux = cbAERutinaContenedora.SelectedValue.ToString().Substring(39);
             }
         }
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo
@@ -170,11 +185,7 @@ namespace HIITT.Paginas
         private void cbAERutinaContenedora_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (cbAERutinaContenedora.SelectedIndex == 0)
-                _MainFrame.Content = new AgregarRutinaPag();
-            if(cbAERutinaContenedora.SelectedIndex > 0)
-            {
-                //Rutinas rutina = new Rutinas();
-            }
+                _MainFrame.Content = new AgregarRutinaPag(_MainFrame);
         }
     }
 }

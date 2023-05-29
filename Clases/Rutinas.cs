@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace GimApp.Clases
@@ -11,34 +12,81 @@ namespace GimApp.Clases
     {
         public Rutinas(string? nombre, bool activa, DayOfWeek dia)
         {
-            if (nombre == null)
+            if (nombre == "" || nombre == null || string.IsNullOrEmpty(nombre) || string.IsNullOrWhiteSpace(nombre))
                 nombre = "Rutina";
             Nombre = nombre;
             Activa = activa;
             Dia = dia;
-            try
+
+            if (activa)
+                CrearArchivoRutinaActiva();
+            else
+                CrearArchivoRutinaInactiva();
+        }
+
+        private void CrearArchivoRutinaActiva()
+        {
+            //Definir el path de rutinas activas
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasActivas\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+            PathRutina = myUri.ToString();
+            PathRutina = PathRutina.Substring(8);
+            //Define el path de las rutinas inactivas
+            Uri myUri2 = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasInactivas\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+            string PathRutinasInactivas = myUri.ToString();
+            PathRutinasInactivas = PathRutinasInactivas.Substring(8);
+            
+            int contador = 1;
+            string enumerador = "";
+            while (File.Exists(PathRutina)|| File.Exists(PathRutinasInactivas))//Revisa que no haya un texto con el mismo path
             {
-                //Definir el path
-                Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+                PathRutina = "";
+                enumerador = "";
+                //Si el txto existe le da un (numero) para que sea otro path distinto
+                myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasActivas\{Nombre}({contador}).txt", UriKind.RelativeOrAbsolute);
                 PathRutina = myUri.ToString();
                 PathRutina = PathRutina.Substring(8);
-                int contador = 1;
-                while (File.Exists(PathRutina))//Revisa que no haya un texto con el mismo path
-                {
-                    //Si el txto existe le da un (numero) para que sea otro path distinto
-                    PathRutina = myUri.ToString();
-                    PathRutina = PathRutina.Substring(8);
-                    PathRutina += $@"({contador}).txt";
-                    contador++;
-                }
-                using (FileStream oFS = File.Create(PathRutina)) //Crea un archivo en el path que se le dio
-                {
-                    Byte[] texto = new UTF8Encoding(true).GetBytes(ToString()); //Codifica el objeto utf8
-                    oFS.Write(texto, 0, texto.Length); //Escribe el objeto en el txt
-                }
-
+                contador++;
+                enumerador = $"({contador - 1})";
             }
-            catch (Exception) { }
+            if (enumerador != "")
+                Nombre += enumerador;
+            using (FileStream oFS = File.Create(PathRutina)) //Crea un archivo en el path que se le dio
+            {
+                Byte[] texto = new UTF8Encoding(true).GetBytes(ToString()); //Codifica el objeto utf8
+                oFS.Write(texto, 0, texto.Length); //Escribe el objeto en el txt
+            }
+        }
+        private void CrearArchivoRutinaInactiva()
+        {
+            //Definir el path
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasInactivas\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+            PathRutina = myUri.ToString();
+            PathRutina = PathRutina.Substring(8);
+            //Define el path de las rutinas activas
+            Uri myUri2 = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasActivas\{Nombre}.txt", UriKind.RelativeOrAbsolute);
+            string PathRutinasActivas = myUri.ToString();
+            PathRutinasActivas = PathRutinasActivas.Substring(8);
+
+            int contador = 1;
+            string enumerador = "";
+            while (File.Exists(PathRutina))//Revisa que no haya un texto con el mismo path
+            {
+                PathRutina = "";
+                enumerador = "";
+                //Si el txto existe le da un (numero) para que sea otro path distinto
+                myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasInactivas\{Nombre}({contador}).txt", UriKind.RelativeOrAbsolute);
+                PathRutina = myUri.ToString();
+                PathRutina = PathRutina.Substring(8);
+                contador++;
+                enumerador = $"({contador - 1})";
+            }
+            if (enumerador != "")
+                Nombre += enumerador;
+            using (FileStream oFS = File.Create(PathRutina)) //Crea un archivo en el path que se le dio
+            {
+                Byte[] texto = new UTF8Encoding(true).GetBytes(ToString()); //Codifica el objeto utf8
+                oFS.Write(texto, 0, texto.Length); //Escribe el objeto en el txt
+            }
         }
 
         public string Nombre
@@ -117,3 +165,4 @@ namespace GimApp.Clases
         private string _PathRutina;
     }
 }
+

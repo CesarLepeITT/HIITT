@@ -13,13 +13,15 @@ namespace GimApp.Clases
 {
     class Ejercicios
     {
-        public Ejercicios(string nombreEjercicio, int series, int repeticiones, Peso peso, string maquinaria, string grupoMuscular)
+        public Ejercicios(string nombreEjercicio, int series, int repeticiones, Peso peso, string maquinaria, string grupoMuscular, string rutinaAlamacenadora)
         {
 
             //nombreEjercicio ??= "Ejercicio";
             if (nombreEjercicio == "")
                 nombreEjercicio = "Ejercicio";
             Nombre = nombreEjercicio;
+
+            RutinaAlamacenadora = rutinaAlamacenadora;
 
             Series = series;
 
@@ -71,6 +73,12 @@ namespace GimApp.Clases
             get { return _nombre; }
         }
 
+        public string RutinaAlamacenadora
+        {
+            set { _rutinaAlamacenadora = value; }
+            get { return _rutinaAlamacenadora; }
+        }
+
         public int Series
         {
             set { _series = value; }
@@ -116,8 +124,7 @@ namespace GimApp.Clases
 
         public override String ToString()
         {
-   
-            return $"Nombre = {_nombre}\n " +
+            return $"Nombre = {_nombre}\n" +
                 $"Series = {_series}\n" +
                 $"Repeticiones = {_repeticiones}\n" +
                 $"PesoCantidad = {_peso.Cantidad}\n" +
@@ -145,7 +152,9 @@ namespace GimApp.Clases
             grupoMuscular ??= "Sin especificar";
             GrupoMuscular = grupoMuscular;
 
-            Ejercicios aux = new Ejercicios(Nombre, Series, Repeticiones, Peso, Maquinaria, GrupoMuscular);
+            _rutinaAlamacenadora = rutinaContenedora;
+
+            Ejercicios aux = new Ejercicios(Nombre, Series, Repeticiones, Peso, Maquinaria, GrupoMuscular, _rutinaAlamacenadora);
 
             PathTxt = aux.PathTxt;
 
@@ -158,6 +167,7 @@ namespace GimApp.Clases
         private Peso _peso;
         private string? _maquinaria;
         private string? _grupoMuscular;
+        private string _rutinaAlamacenadora;
 
     }
 
