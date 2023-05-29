@@ -10,8 +10,6 @@
     <Folder Include="Clases\saves\" />
     <Folder Include="saves\ejercicios\" />
     <Folder Include="saves\rutinas\" />
-
-  <ItemGroup>
     <Folder Include="Clases\saves\" />
   </ItemGroup>
 
