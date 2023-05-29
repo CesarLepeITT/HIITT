@@ -13,6 +13,8 @@
                 <ResourceDictionary Source="Diccionarios\Estilotexbox.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloTEXbloq.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloBotones.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Diccionarios\EstiloSatackPanel.xaml"></ResourceDictionary>
+
 
 
 
