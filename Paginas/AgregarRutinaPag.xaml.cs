@@ -1,4 +1,5 @@
 ﻿using GimApp.Clases;
+using GimApp.Paginas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,10 @@ namespace GimApp
     /// </summary>
     public partial class AgregarRutinaPag : Page
     {
-        public AgregarRutinaPag()
+        public AgregarRutinaPag(Frame MainFrame)
         {
             InitializeComponent();
+            _MainFrame = MainFrame;
         }
 
         string _nombre;
@@ -31,6 +33,7 @@ namespace GimApp
         DayOfWeek _dia;
         bool _activa = false;
         string _PathRutina;
+        Frame _MainFrame;
 
         private void DesplegarPaginaError(string texto, TextBox sender)
         {
@@ -50,19 +53,19 @@ namespace GimApp
         private bool TodoBien()
         {
             if (cbRADia.SelectedIndex != -1)
-                    return false;
-            return true;   
+                    return true;
+            return false;   
         }
 
         private void btnAgregarRutina_Click(object sender, RoutedEventArgs e)
         {
             if (TodoBien())
-                new Rutinas(_nombre, _activa, _dia);
-            else
             {
-                if (cbRADia.SelectedIndex != -1)
-                    DesplegarPaginaError("Debes de seleccionar un dia de la semana.", cbRADia);
+                new Rutinas(_nombre, _activa, _dia);
+                _MainFrame.Content = new RutinasPag(_MainFrame);
             }
+            else
+                DesplegarPaginaError("Debes de seleccionar un dia de la semana.", cbRADia);
 
         }
 

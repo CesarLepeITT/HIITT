@@ -238,10 +238,21 @@ namespace HIITT.Clases
         Nombre = nombreingresado
         Dia = dia
         Activa = True/False
+        PathEjercicio 1 
+        PathEjercicio 2
+        ...
+        PathEjercicio n
          */
-        public static string[] RutinasPathList()
+        public static string[] RutinasActivasPathList()
         {
-            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\", UriKind.RelativeOrAbsolute);
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasActivas\", UriKind.RelativeOrAbsolute);
+            string path = myUri.ToString();
+            path = path.Substring(8);
+            return Directory.GetFiles(path);
+        }
+        public static string[] RutinasInactivasPathList()
+        {
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasInactivas\", UriKind.RelativeOrAbsolute);
             string path = myUri.ToString();
             path = path.Substring(8);
             return Directory.GetFiles(path);
@@ -268,5 +279,28 @@ namespace HIITT.Clases
         public static string LeerDiaRutina(string path) { return "No implementado"; }
 
         public static string LeerEsActivaRutina(string path) { return "No implementado"; }
+
+        //public static string[] LeerPathEjercicios(string pathRutina) 
+        //{
+
+        //r
+            
+        //}
+
+        public static void AgregarPathRutina(string nombreRutina)
+        {
+            // Con el nombre buscas el path del archivo de la rutina
+            string pathRutina;
+            Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\{nombreRutina}.txt", UriKind.RelativeOrAbsolute);
+            pathRutina = myUri.ToString();
+            pathRutina = pathRutina.Substring(8);
+            // Editas el archivo para guardar la rutina
+
+            // TODO:
+            // Como mierda conecto esto??
+
+        }
+
+
     }
 }

@@ -4,26 +4,15 @@
              xmlns:local="clr-namespace:GimApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
                 <ResourceDictionary Source="Diccionarios\EstiloButtonAgregar.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloStackPanel.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\Estilotexbox.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloTEXbloq.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloBotones.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloSatackPanel.xaml"></ResourceDictionary>
-
-
-
-
-
             </ResourceDictionary.MergedDictionaries>
-           
-            
-            
-      
         </ResourceDictionary>
     </Application.Resources>
 </Application>
