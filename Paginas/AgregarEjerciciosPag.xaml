@@ -5,32 +5,33 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HIITT.Paginas"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="550" d:DesignWidth="800"
       Title="AgregarEjercicios">
 
     <Grid x:Name="gridMainGrid">
+        
         <StackPanel x:Name="sckpMainStackPanel">
-            <TextBlock x:Name="cola"/>
-            <TextBlock Text="Nombre (str)"/>
-            <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged"/>
-            <TextBlock Text="Repeticiones (int)"/>
-            <TextBox x:Name="tbAERepeticiones" TextChanged="tbInt_TextChanged"/>
-            <TextBlock Text="Series (int)"/>
-            <TextBox x:Name="tbAESeries"/>
-            <TextBlock Text="Peso (decimal)"/>
-            <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged"/>
-            <ComboBox x:Name="cbAEUnidades">
+            <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
+            <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbAERepeticiones" TextChanged="tbInt_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+            <TextBlock Text="Series (int)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbAESeries" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+            <TextBlock Text="Peso (decimal)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+            <ComboBox x:Name="cbAEUnidades">                
                 <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
                 <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
             </ComboBox>
-            <TextBlock Text="Maquinaria (str)"/>
-            <TextBox x:Name="tbAEMaquinaria"/>
-            <TextBlock Text="Grupo muscular (str)"/>
-            <TextBox x:Name="tbAEGrupoMuscular"/>
-            <TextBlock Text="Rutina Contenedora"/>
-            <ComboBox x:Name="cbAERutinaContenedora"  SelectionChanged="cbAERutinaContenedora_SelectionChanged">
+            <TextBlock Text="Maquinaria (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbAEMaquinaria"  Style="{StaticResource ModernTextBoxStyle}" Height="10" TextChanged="tbAEMaquinaria_TextChanged"/>
+            <TextBlock Text="Grupo muscular (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbAEGrupoMuscular"  Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+            <TextBlock Text="Rutina Contenedora" Style="{StaticResource ModernTextBlockStyle}"/>
+            <ComboBox x:Name="cbAERutinaContenedora" Margin="20,10,55,0" SelectionChanged="cbAERutinaContenedora_SelectionChanged">
                 <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
             </ComboBox>
+            <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource ModernButtonStyle}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         </StackPanel>
         <Button x:Name="btnAEAgregarEjercicio" Content="Agregar ejercico" Height="30" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">

@@ -187,5 +187,10 @@ namespace HIITT.Paginas
             if (cbAERutinaContenedora.SelectedIndex == 0)
                 _MainFrame.Content = new AgregarRutinaPag(_MainFrame);
         }
+
+        private void tbAEMaquinaria_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

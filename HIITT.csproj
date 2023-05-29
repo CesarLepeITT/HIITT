@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="calendario %281%29.png" />
+    <None Remove="Entrenar.png" />
+    <None Remove="gimnasio %283%29.png" />
+    <None Remove="rutina.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Clases\saves\" />
+    <Folder Include="Imagenes\" />
+    <Folder Include="saves\ejercicios\" />
+    <Folder Include="saves\rutinas\" />
+    <Folder Include="Clases\saves\" />
     <Compile Remove="Clases\saves\**" />
     <EmbeddedResource Remove="Clases\saves\**" />
     <None Remove="Clases\saves\**" />
@@ -17,12 +28,11 @@
     <Folder Include="saves\rutinas\rutinasInactivas\" />
     <Folder Include="saves\rutinas\rutinasActivas\" />
   </ItemGroup>
-
   <ItemGroup>
-    <Resource Include="calendario.png" />
-    <Resource Include="capacitacion.png" />
-    <Resource Include="gimnasio (1).png" />
-    <Resource Include="gimnasio (2).png" />
+    <Resource Include="calendario (1).png" />
+    <Resource Include="Entrenar.png" />
+    <Resource Include="gimnasio (3).png" />
+    <Resource Include="rutina.png" />
   </ItemGroup>
 
 </Project>
