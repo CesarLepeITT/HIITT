@@ -146,11 +146,11 @@ namespace HIITT.Paginas
 
         private void AgregarEjercicioARutina(string nombreRutina, string nombreEjercicio)
         {
-            string pathEjercicio =  ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
-            string pathRutina = ManejadorTextos.LeerPathRutina(nombreRutina);
+            //string pathEjercicio =  ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
+            //string pathRutina = ManejadorTextos.LeerPathRutina(nombreRutina);
 
-            FileStream fs = new FileStream(pathRutina,FileMode.Open, FileAccess.ReadWrite);
-            Byte[] texto = new UTF8Encoding(true).GetBytes(pathEjercicio);
+            //FileStream fs = new FileStream(pathRutina,FileMode.Open, FileAccess.ReadWrite);
+            //Byte[] texto = new UTF8Encoding(true).GetBytes(pathEjercicio);
 
         }
 
