@@ -8,9 +8,13 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
 
-                <ResourceDictionary Source="Diccionarios\EstiloButton.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Diccionarios\EstiloButtonAgregar.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloStackPanel.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\Estilotexbox.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Diccionarios\EstiloTEXbloq.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Diccionarios\EstiloBotones.xaml"></ResourceDictionary>
+
+
 
 
             </ResourceDictionary.MergedDictionaries>

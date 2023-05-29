@@ -176,5 +176,10 @@ namespace HIITT.Paginas
                 //Rutinas rutina = new Rutinas();
             }
         }
+
+        private void tbAEMaquinaria_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

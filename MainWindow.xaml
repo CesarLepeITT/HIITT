@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:GimApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
-    <Grid Background="#ffffeb">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="140"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel>
+        <StackPanel Background="Gold">
             <Grid Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <TextBlock Text="HIITT" FontFamily="Century Gothic" FontSize="25" FontWeight="ExtraBold" Foreground="#072005"/>
             </Grid>
@@ -20,25 +20,25 @@
             <ListBox x:Name="NavListBox" SelectionChanged="NavItemSelection" SelectionMode="Single" FontFamily="Century Gothic" FontSize="14" Foreground="#072005" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBoxItem x:Name="ResumenListBoxItem">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/gimnasio (2).png"/>
+                        <Image Height="25" Width="25" Source="/gimnasio (3).png"/>
                         <TextBlock Text="Resumen" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/gimnasio (1).png"/>
+                        <Image Height="25" Width="25" Source="/Entrenar.png"/>
                         <TextBlock Text="Entrenar" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/capacitacion.png"/>
+                        <Image Height="25" Width="25" Source="/rutina.png"/>
                         <TextBlock Text="Rutinas" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/calendario.png"/>
+                        <Image Height="25" Width="25" Source="/calendario (1).png"/>
                         <TextBlock Text="Calendario" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
