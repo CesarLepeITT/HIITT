@@ -31,7 +31,7 @@ namespace HIITT.Paginas.RutinasPag
                 {
                     TextBlock nombre = new TextBlock();
                     nombre.Text = ManejadorTextos.LeerNombreRutina(f);
-                    stckpMainStackPanel.Children.Add(nombre);
+                    //stckpMainStackPanel.Children.Add(nombre);
                 } 
             }
 
