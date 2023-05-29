@@ -19,6 +19,7 @@
             <TextBox x:Name="tbAESeries"/>
             <TextBlock Text="Peso (decimal)"/>
             <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged"/>
+            <TextBlock Text="Unidades"/>
             <ComboBox x:Name="cbAEUnidades">
                 <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
                 <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
@@ -31,8 +32,9 @@
             <ComboBox x:Name="cbAERutinaContenedora"  SelectionChanged="cbAERutinaContenedora_SelectionChanged">
                 <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
             </ComboBox>
+            <Button x:Name="btnAEAgregarEjercicio" Content="Agregar ejercico" Height="30" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         </StackPanel>
-        <Button x:Name="btnAEAgregarEjercicio" Content="Agregar ejercico" Height="30" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
+
         <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
             <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
             <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>

@@ -50,7 +50,6 @@ namespace HIITT.Clases
         public string LeerNombreEjercicio(string path)
         {
             string nombre = string.Empty;
-
           
                 using (StreamReader reader = new StreamReader(path))
                 {
