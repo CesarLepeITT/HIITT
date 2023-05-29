@@ -8,9 +8,8 @@
       d:DesignHeight="550" d:DesignWidth="800"
       Title="AgregarEjercicios">
 
-    <Grid x:Name="gridMainGrid">
-        
-        <StackPanel x:Name="sckpMainStackPanel">
+    <Grid x:Name="gridMainGrid" >
+        <StackPanel x:Name="sckpMainStackPanel" MaxHeight="550"> 
             <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
             <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
             <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>
@@ -19,6 +18,7 @@
             <TextBox x:Name="tbAESeries" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
             <TextBlock Text="Peso (decimal)" Style="{StaticResource ModernTextBlockStyle}"/>
             <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+            <TextBlock Text="Unidades" Style="{StaticResource ModernTextBlockStyle}"/>
             <ComboBox x:Name="cbAEUnidades">                
                 <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
                 <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
@@ -33,7 +33,6 @@
             </ComboBox>
             <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource ModernButtonStyle}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         </StackPanel>
-        <Button x:Name="btnAEAgregarEjercicio" Content="Agregar ejercico" Height="30" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
         <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
             <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
             <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>

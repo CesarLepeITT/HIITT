@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -142,6 +143,18 @@ namespace HIITT.Paginas
                 string aux = cbAERutinaContenedora.SelectedValue.ToString().Substring(39);
             }
         }
+
+        private void AgregarEjercicioARutina(string nombreRutina, string nombreEjercicio)
+        {
+            //string pathEjercicio =  ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
+            //string pathRutina = ManejadorTextos.LeerPathRutina(nombreRutina);
+
+            //FileStream fs = new FileStream(pathRutina,FileMode.Open, FileAccess.ReadWrite);
+            //Byte[] texto = new UTF8Encoding(true).GetBytes(pathEjercicio);
+
+        }
+
+
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo
         private void tbStr_TextChanged(object sender, TextChangedEventArgs e)
         {
