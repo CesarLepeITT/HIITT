@@ -12,6 +12,8 @@
                 <ResourceDictionary Source="Diccionarios\EstiloTEXbloq.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloBotones.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="Diccionarios\EstiloSatackPanel.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="Diccionarios\estilo para combobox.xaml"></ResourceDictionary>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

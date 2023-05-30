@@ -9,7 +9,7 @@
       Title="AgregarEjercicios" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
     <ScrollViewer>
         <Grid x:Name="gridMainGrid" >
-            <StackPanel x:Name="sckpMainStackPanel" > 
+            <StackPanel x:Name="sckpMainStackPanel" Margin="0,0,0,10" >
                 <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
                 <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
                 <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>
@@ -19,7 +19,7 @@
                 <TextBlock Text="Peso (decimal)" Style="{StaticResource ModernTextBlockStyle}"/>
                 <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
                 <TextBlock Text="Unidades" Style="{StaticResource ModernTextBlockStyle}"/>
-                <ComboBox x:Name="cbAEUnidades">                
+                <ComboBox x:Name="cbAEUnidades">
                     <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
                     <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
                 </ComboBox>

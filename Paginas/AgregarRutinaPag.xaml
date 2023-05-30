@@ -10,10 +10,12 @@
 
     <Grid>
         <StackPanel x:Name="sckpARMain">
-            <TextBlock Text="Nombre (str)"/> 
-            <TextBox x:Name="tbARNombre" TextChanged="tbARNombre_TextChanged"/>
-            <TextBlock Text="Dia de realizacion"/>
-            <ComboBox x:Name="cbRADia" SelectionChanged="cbRADia_SelectionChanged">
+            <TextBlock Text="AGREGAR RUTINA" HorizontalAlignment="Center" FontSize="20" FontWeight="Bold" Foreground="#FFF7FCFC" Background="#FF010109" FontFamily="Times New Roman"/>
+
+            <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+            <TextBox x:Name="tbARNombre" TextChanged="tbARNombre_TextChanged" Style="{StaticResource ModernTextBoxStyle}"/>
+            <TextBlock Text="Dia de realizacion" Style="{StaticResource ModernTextBlockStyle}"/>
+            <ComboBox x:Name="cbRADia" SelectionChanged="cbRADia_SelectionChanged" Style="{StaticResource estilo para combobox}">
                 <ComboBoxItem x:Name="cbiDomingo" Content="Domingo"/>
                 <ComboBoxItem x:Name="cbiLunes" Content="Lunes"/>
                 <ComboBoxItem x:Name="cbiMartes" Content="Martes"/>

@@ -16,15 +16,13 @@
   <ItemGroup>
     <Folder Include="Imagenes\" />
     <Folder Include="saves\ejercicios\" />
-    <Folder Include="saves\rutinas\" />
     <Compile Remove="Clases\saves\**" />
     <EmbeddedResource Remove="Clases\saves\**" />
+    <Folder Include="saves\rutinas\rutinasInactivas\" />
     <None Remove="Clases\saves\**" />
     <Page Remove="Clases\saves\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="saves\ejercicios\" />
-    <Folder Include="saves\rutinas\rutinasInactivas\" />
     <Folder Include="saves\rutinas\rutinasActivas\" />
   </ItemGroup>
   <ItemGroup>
