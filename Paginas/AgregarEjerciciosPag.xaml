@@ -31,7 +31,7 @@
                 <ComboBox x:Name="cbAERutinaContenedora" Margin="20,10,55,0" SelectionChanged="cbAERutinaContenedora_SelectionChanged">
                     <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
                 </ComboBox>
-                <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource ModernButtonStyle}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,20,0" Click="btnAEAgregarEjercicio_Click"/>
+                <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource ModernButtonStyle}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,0,20" Click="btnAEAgregarEjercicio_Click"/>
             </StackPanel>
             <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
                 <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
