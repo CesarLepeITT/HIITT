@@ -17,7 +17,7 @@ namespace HIITT.Clases
         Series = serieingresada
         Repeticiones = numeroingresado
         PesoCantidad = cantidadpesoingresad
-        PesoUnidad = unidadpesoingresad
+        PesoUnidad = unidadpesoingresadfsdsdsdffdssdfdsfdfdsfddffsd
         GrupoMuscular = grupomuscularingresado
          */
         public string[] EjerciciosPathList()
