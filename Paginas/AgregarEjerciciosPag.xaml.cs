@@ -79,7 +79,11 @@ namespace HIITT.Paginas
 
         private void AsignarVariables()
         {
-            _nombreEjercicio = tbAENombre.Text;
+            if (tbAENombre.Text != "")
+                _nombreEjercicio = tbAENombre.Text;
+            else
+                DesplegarPaginaError("No has ingresado un valor para el nombre del ejercicio.", tbAENombre);
+
             try 
             { 
                 _series = int.Parse(tbAESeries.Text);
@@ -124,12 +128,13 @@ namespace HIITT.Paginas
 
         private bool RevisarSiTodoCorrecto()
         {
-            if (_series > 0)
-                if (_repeticiones > 0)
-                    if (_cantidadPeso > 0)
-                        if (!(cbAEUnidades.SelectedIndex == -1))
-                            if (!(cbAERutinaContenedora.SelectedIndex == -1))
-                                return true;
+            if (_nombreEjercicio != "")
+                if (_series > 0)
+                    if (_repeticiones > 0)
+                        if (_cantidadPeso > 0)
+                            if (!(cbAEUnidades.SelectedIndex == -1))
+                                if (!(cbAERutinaContenedora.SelectedIndex == -1))
+                                    return true;
             return false; 
         }
 
@@ -139,13 +144,24 @@ namespace HIITT.Paginas
             if (RevisarSiTodoCorrecto())
             {
                 new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular, _rutinaAlmacenadora);
+                DefinirRutinaAlmacenadora();
                 ManejadorTextos.AgregarPathEjercicioARutina(_nombreEjercicio,_rutinaAlmacenadora);
             }
         }
 
         private void DefinirRutinaAlmacenadora()
         {
-            _rutinaAlmacenadora = "tupu";
+            //cbAERutinaContenedora.SelectedIndex
+
+            //Encuentra el index seleccionad
+            //Revisa su nombre
+
+            object obj = cbAERutinaContenedora.SelectedItem;
+            _rutinaAlmacenadora = obj.ToString();
+            _rutinaAlmacenadora = _rutinaAlmacenadora.Substring(39);
+            
+
+
         }
 
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo

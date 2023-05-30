@@ -112,7 +112,7 @@ namespace GimApp.Clases
         }
         public string[] ListaEjercicios 
         {
-            get { return _listaEjercicios; }
+            get { return _listaEjerciciosPath; }
         }
 
         public void AgregarEjercicioARutina(string nombreEjercicio)
@@ -120,23 +120,23 @@ namespace GimApp.Clases
             Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\{nombreEjercicio}.txt", UriKind.RelativeOrAbsolute);
             string pathTexto = myUri.ToString();
             pathTexto = pathTexto.Substring(8);
-            _listaEjercicios.Append(pathTexto);
+            _listaEjerciciosPath.Append(pathTexto);
         }        
         public void AgregarEjercicioARutinaPath(string path)
         {
-            _listaEjercicios.Append(path);
+            _listaEjerciciosPath.Append(path);
         }
         public void EliminarEjercicio(Ejercicios ejercicio)
         {
-            for (int pos = 0; pos < _listaEjercicios.Length; pos++) 
+            for (int pos = 0; pos < _listaEjerciciosPath.Length; pos++) 
             {
-                if (_listaEjercicios[pos] == ejercicio.Nombre)
+                if (_listaEjerciciosPath[pos] == ejercicio.Nombre)
                 {
-                    for (int i = pos;i < _listaEjercicios.Length; i++)
+                    for (int i = pos;i < _listaEjerciciosPath.Length; i++)
                     {
-                        _listaEjercicios[i] = _listaEjercicios[i + 1];
+                        _listaEjerciciosPath[i] = _listaEjerciciosPath[i + 1];
                     }
-                    pos = _listaEjercicios.Length;
+                    pos = _listaEjerciciosPath.Length;
                 }
             }
         }
@@ -146,8 +146,8 @@ namespace GimApp.Clases
             string ejercicios = "";
             try
             {
-                if (_listaEjercicios != null)
-                    for (int i=0; i<_listaEjercicios.Length; i++)
+                if (_listaEjerciciosPath != null)
+                    for (int i=0; i<_listaEjerciciosPath.Length; i++)
                         ejercicios += $"{ListaEjercicios[i]}\n";
             }
             catch (Exception) { }
@@ -159,7 +159,7 @@ namespace GimApp.Clases
         public void EditarRutina(string nombre, bool activa, DayOfWeek dia) {  }
 
         private string? _nombre;
-        private string[] _listaEjercicios;
+        private string[] _listaEjerciciosPath;
         private DayOfWeek _dia;
         private bool _activa;
         private string _PathRutina;

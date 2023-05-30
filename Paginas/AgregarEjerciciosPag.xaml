@@ -10,8 +10,6 @@
     <ScrollViewer>
         <Grid x:Name="gridMainGrid" >
             <StackPanel x:Name="sckpMainStackPanel" >
-                <TextBlock x:Name="prueba"/>
-                <TextBlock Style="{StaticResource ModernTextBlockTitulos}"><Run Text="A"/><Run Language="es-mx" Text="AGREGAR  EJERCICIO"/></TextBlock>
                 <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
                 <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
                 <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>

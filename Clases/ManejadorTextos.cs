@@ -293,19 +293,6 @@ namespace HIITT.Clases
             Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\{nombreEjercicio}.txt", UriKind.RelativeOrAbsolute);
             pathEjercicio = myUri.ToString();
             pathEjercicio = pathEjercicio.Substring(8);
-            // Editas el archivo para guardar el ejercicio
-            //////using (FileStream fs = File.Create(path))
-            //////{
-            //////    AddText(fs, "This is some text");
-            //////    AddText(fs, "This is some more text,");
-            //////    AddText(fs, "\r\nand this is on a new line");
-            //////    AddText(fs, "\r\n\r\nThe following is a subset of characters:\r\n");
-
-            //////    for (int i = 1; i < 120; i++)
-            //////    {
-            //////        AddText(fs, Convert.ToChar(i).ToString());
-            //////    }
-            //////}
 
             // Con el nombre de la rutina buscas el path del archivo de la rutina
             string pathRutina;
@@ -313,38 +300,16 @@ namespace HIITT.Clases
             pathRutina = uriRutina.ToString();
             pathRutina = pathRutina.Substring(8);
 
-            if (File.Exists(pathRutina + $@"\rutinasActivas\{nombreRutina}.txt"))
+            if (File.Exists($@"{pathRutina}\rutinasActivas\{nombreRutina}.txt"))
                 pathRutina += $@"\rutinasActivas\{nombreRutina}.txt";
-            if (File.Exists(pathRutina + $@"\rutinasInactivas\{nombreRutina}.txt"))
-                pathRutina += $@"\rutinasActivas\{nombreRutina}.txt";
+            if (File.Exists($@"{pathRutina}\rutinasInactivas\{nombreRutina}.txt"))
+                pathRutina += $@"\rutinasInactivas\{nombreRutina}.txt";
 
             using (FileStream fs = File.Open(pathEjercicio,FileMode.Open))
             {
-                //AddText(fs, pathRUtina);
-                string _pathEjercicio = "\n" + pathEjercicio;
-                // Byte[] texto = new UTF8Encoding(true).GetBytes(ToString()); //Codifica el objeto utf8
-
-                byte[] texto = new UTF8Encoding(true).GetBytes(_pathEjercicio);
-                File.AppendAllText(pathRutina,_pathEjercicio);
+                string readText = File.ReadAllText(pathRutina);
+                File.WriteAllText(pathRutina, readText + "\n"+ pathEjercicio);
             }
-
-
-
         }
-
-        //// Metodos para funcionamiento de agregar ejercicio a una rutina
-
-        ////string pathEjercicio = ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
-        ////string pathRutina = ManejadorTextos.LeerPathRutina(nombreRutina);
-
-        //public string LeerPathEjercicio(string nombreEjercicio) 
-        //{
-        //    //Buscar el archivo en saves/rutinas/rutinasActivas
-        //    foreach(f in )
-        //    //Buscar el archivo en saves/rutinas/rutinasInactivas
-        //    //Devolver el path en formato string
-
-        //}
-
     }
 }
