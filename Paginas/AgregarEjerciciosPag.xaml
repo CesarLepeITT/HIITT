@@ -5,38 +5,39 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:HIITT.Paginas"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="800"
-      Title="AgregarEjercicios">
-
-    <Grid x:Name="gridMainGrid" >
-        <StackPanel x:Name="sckpMainStackPanel" MaxHeight="550"> 
-            <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
-            <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
-            <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>
-            <TextBox x:Name="tbAERepeticiones" TextChanged="tbInt_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
-            <TextBlock Text="Series (int)" Style="{StaticResource ModernTextBlockStyle}"/>
-            <TextBox x:Name="tbAESeries" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
-            <TextBlock Text="Peso (decimal)" Style="{StaticResource ModernTextBlockStyle}"/>
-            <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
-            <TextBlock Text="Unidades" Style="{StaticResource ModernTextBlockStyle}"/>
-            <ComboBox x:Name="cbAEUnidades">                
-                <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
-                <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
-            </ComboBox>
-            <TextBlock Text="Maquinaria (str)" Style="{StaticResource ModernTextBlockStyle}"/>
-            <TextBox x:Name="tbAEMaquinaria"  Style="{StaticResource ModernTextBoxStyle}" Height="10" TextChanged="tbAEMaquinaria_TextChanged"/>
-            <TextBlock Text="Grupo muscular (str)" Style="{StaticResource ModernTextBlockStyle}"/>
-            <TextBox x:Name="tbAEGrupoMuscular"  Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
-            <TextBlock Text="Rutina Contenedora" Style="{StaticResource ModernTextBlockStyle}"/>
-            <ComboBox x:Name="cbAERutinaContenedora" Margin="20,10,55,0" SelectionChanged="cbAERutinaContenedora_SelectionChanged">
-                <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
-            </ComboBox>
-            <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource ModernButtonStyle}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,0,0" Click="btnAEAgregarEjercicio_Click"/>
-        </StackPanel>
-        <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
-            <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
-            <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>
-            <Button x:Name="ErrorGridAceptar" Content="Aceptar" Width="100" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Click="ErrorGridAceptar_Click"/>
+      d:DesignWidth="800"
+      Title="AgregarEjercicios" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+    <ScrollViewer>
+        <Grid x:Name="gridMainGrid" >
+            <StackPanel x:Name="sckpMainStackPanel" > 
+                <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+                <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
+                <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>
+                <TextBox x:Name="tbAERepeticiones" TextChanged="tbInt_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Series (int)" Style="{StaticResource ModernTextBlockStyle}"/>
+                <TextBox x:Name="tbAESeries" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Peso (decimal)" Style="{StaticResource ModernTextBlockStyle}"/>
+                <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Unidades" Style="{StaticResource ModernTextBlockStyle}"/>
+                <ComboBox x:Name="cbAEUnidades">                
+                    <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
+                    <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
+                </ComboBox>
+                <TextBlock Text="Maquinaria (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+                <TextBox x:Name="tbAEMaquinaria"  Style="{StaticResource ModernTextBoxStyle}" Height="10" TextChanged="tbAEMaquinaria_TextChanged"/>
+                <TextBlock Text="Grupo muscular (str)" Style="{StaticResource ModernTextBlockStyle}"/>
+                <TextBox x:Name="tbAEGrupoMuscular"  Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Rutina Contenedora" Style="{StaticResource ModernTextBlockStyle}"/>
+                <ComboBox x:Name="cbAERutinaContenedora" Margin="20,10,55,0" SelectionChanged="cbAERutinaContenedora_SelectionChanged">
+                    <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
+                </ComboBox>
+                <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource ModernButtonStyle}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,0,20" Click="btnAEAgregarEjercicio_Click"/>
+            </StackPanel>
+            <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
+                <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
+                <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>
+                <Button x:Name="ErrorGridAceptar" Content="Aceptar" Width="100" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Click="ErrorGridAceptar_Click"/>
+            </Grid>
         </Grid>
-    </Grid>
+    </ScrollViewer>
 </Page>

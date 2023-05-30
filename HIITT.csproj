@@ -14,11 +14,9 @@
     <None Remove="rutina.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Clases\saves\" />
     <Folder Include="Imagenes\" />
     <Folder Include="saves\ejercicios\" />
     <Folder Include="saves\rutinas\" />
-    <Folder Include="Clases\saves\" />
     <Compile Remove="Clases\saves\**" />
     <EmbeddedResource Remove="Clases\saves\**" />
     <None Remove="Clases\saves\**" />
