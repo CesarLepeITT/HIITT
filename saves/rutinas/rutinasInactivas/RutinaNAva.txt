@@ -1,0 +1,3 @@
+Nombre = RutinaNAva
+Activa = False
+Dia = Monday

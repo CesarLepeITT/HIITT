@@ -1,7 +1,0 @@
-Nombre = Ejercicio
-Series = 1
-Repeticiones = 1
-PesoCantidad = 1
-PesoUnidad = kg
-Maquiaria = 
-GrupoMuscular = 

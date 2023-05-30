@@ -32,11 +32,14 @@ namespace GimApp.Paginas
             
             if (_rutinasPathListInactivas.Length > 0 || _rutinasPathListActivas.Length > 0)
             {
+                //Esto es un textblock
                 TextBlock txt1 = new();
                 txt1.Text = "Rutinas Activas";
                 txt1.VerticalAlignment = VerticalAlignment.Top;
                 txt1.HorizontalAlignment = HorizontalAlignment.Center;
                 txt1.Margin = new Thickness(0, 10, 0, 10);
+                //Asi se agrega n estilo desde c# (code begind)
+                //txt1.Style = (Style)Application.Current.Resources["ModernTextBlockStyle"];
 
                 stckpMainStackPanel.Children.Add(txt1);
                 GenerarRutinasActivas();
@@ -54,12 +57,14 @@ namespace GimApp.Paginas
             {
                 TextBlock noRutinas = new TextBlock();
                 noRutinas.Text = "No hay rutinas aún, pero nunca es mal momento para agregar una. :)";
+
                 Button agregarRutinas = new Button();
                 agregarRutinas.Height = 30;
                 agregarRutinas.Width = 200;
                 agregarRutinas.VerticalAlignment = VerticalAlignment.Bottom;
                 agregarRutinas.Content = "Agregar rutina";
                 agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
+
                 stckpMainStackPanel.Children.Add(noRutinas);
                 stckpMainStackPanel.Children.Add(agregarRutinas);
             } 
