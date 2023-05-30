@@ -139,21 +139,14 @@ namespace HIITT.Paginas
             if (RevisarSiTodoCorrecto())
             {
                 new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular, _rutinaAlmacenadora);
-               // Nombre de la rutina contenedora
-                string aux = cbAERutinaContenedora.SelectedValue.ToString().Substring(39);
+                ManejadorTextos.AgregarPathEjercicioARutina(_nombreEjercicio,_rutinaAlmacenadora);
             }
         }
 
-        private void AgregarEjercicioARutina(string nombreRutina, string nombreEjercicio)
+        private void DefinirRutinaAlmacenadora()
         {
-            //string pathEjercicio =  ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
-            //string pathRutina = ManejadorTextos.LeerPathRutina(nombreRutina);
-
-            //FileStream fs = new FileStream(pathRutina,FileMode.Open, FileAccess.ReadWrite);
-            //Byte[] texto = new UTF8Encoding(true).GetBytes(pathEjercicio);
-
+            _rutinaAlmacenadora = "tupu";
         }
-
 
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo
         private void tbStr_TextChanged(object sender, TextChangedEventArgs e)

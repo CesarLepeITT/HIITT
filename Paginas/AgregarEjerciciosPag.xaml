@@ -9,7 +9,8 @@
       Title="AgregarEjercicios" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
     <ScrollViewer>
         <Grid x:Name="gridMainGrid" >
-            <StackPanel x:Name="sckpMainStackPanel" > 
+            <StackPanel x:Name="sckpMainStackPanel" >
+                <TextBlock x:Name="prueba"/>
                 <TextBlock Text="Nombre (str)" Style="{StaticResource ModernTextBlockStyle}"/>
                 <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
                 <TextBlock Text="Repeticiones (int)" Style="{StaticResource ModernTextBlockStyle}"/>

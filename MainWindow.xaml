@@ -29,6 +29,12 @@
                         <Image Height="25" Width="25" Source="/Entrenar.png"/>
                         <TextBlock Text="Entrenar" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
                     </StackPanel>
+                </ListBoxItem> 
+                <ListBoxItem>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="25" Width="25" Source="/Entrenar.png"/>
+                        <TextBlock Text="Ejercicios" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
+                    </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">

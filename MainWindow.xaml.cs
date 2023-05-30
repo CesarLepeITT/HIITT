@@ -38,13 +38,17 @@ namespace GimApp
             }
             if (NavListBox.SelectedIndex == 1)
             {
-               MainPag.Content = new EjerciciosPag();
+                MainPag.Content = new EjerciciosPag();
             }
             if (NavListBox.SelectedIndex == 2)
             {
-                MainPag.Content = new RutinasPag(MainPag);
+                MainPag.Content = new AgregarEjerciciosPag(MainPag);
             }
             if (NavListBox.SelectedIndex == 3)
+            {
+               MainPag.Content = new RutinasPag(MainPag);
+            } 
+            if (NavListBox.SelectedIndex == 4)
             {
                MainPag.Content = new CalendarioPag();
             }
