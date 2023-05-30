@@ -44,7 +44,7 @@
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
-        <Frame x:Name="MainPag" Navigated="Main_Navigated" NavigationUIVisibility="Visible" Grid.Column="1"/>
+        <Frame x:Name="MainPag" Navigated="Main_Navigated" NavigationUIVisibility="Visible" Grid.Column="1" AutomationProperties.IsColumnHeader="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
         <Button Style="{DynamicResource ButtonStyle1}"  Content=""
                 Name="btnAgregarEjercicio" Width="25" Height="25"
                 Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
