@@ -30,6 +30,8 @@ namespace GimApp
             _mainFrame= mainFrame;
             _bandera = false;
             GenerarEjercicios();
+            if (!(_bandera))
+                Secciones.GenerarSubTitulos("No hay ejercicios asignados al dia de hoy.", MainStackPanel);
         }
         Frame _mainFrame;
         bool _bandera;
@@ -59,8 +61,6 @@ namespace GimApp
                 MainStackPanel.Children.Add(stck);
                 _bandera = true;
             }
-            if (!(_bandera))
-                Secciones.GenerarSubTitulos("No hay ejercicios asignados al dia de hoy;", MainStackPanel);
         }
     }
 }
