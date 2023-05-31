@@ -63,7 +63,7 @@ namespace GimApp.Paginas
                 agregarRutinas.Content = "Agregar rutina";
                 agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
                 agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-
+              
                 stckpMainStackPanel.Children.Add(noRutinas);
                 stckpMainStackPanel.Children.Add(agregarRutinas);
             } 
@@ -143,6 +143,7 @@ namespace GimApp.Paginas
                     Button agregarRutinas = new Button();
                     agregarRutinas.Content = "Agregar Rutina";
                     agregarRutinas.Foreground = new SolidColorBrush(Colors.White);
+
                     agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
 

@@ -35,7 +35,7 @@ namespace GimApp
 
         public void GenerarDia(string dia)
         {
-            Secciones.GenerarTitulos(dia, MainStackPanel);
+            Secciones.GenerarSubTitulos(dia, MainStackPanel);
             string[] rutinasActivasPath = ManejadorTextos.RutinasActivasPathList();
             if (rutinasActivasPath.Length > 0)
                 GenerarRutinas(rutinasActivasPath, dia);
@@ -62,7 +62,7 @@ namespace GimApp
             TextBlock txb = new()
             {
                 Text = nombre,
-                FontSize= 18,
+                FontSize= 22,
                 Margin = new Thickness(40, 10, 120, 0),
             };
             Grid grd = new();

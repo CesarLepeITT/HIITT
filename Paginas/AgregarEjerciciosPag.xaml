@@ -10,7 +10,7 @@
     <ScrollViewer>
         <Grid x:Name="gridMainGrid" >
             <StackPanel x:Name="sckpMainStackPanel" >
-                <Border CornerRadius="5" Margin="40,15,120,15" Background="Lavender">
+                <Border CornerRadius="5" Margin="40,15,120,15" Background="gold">
                     
                     <TextBlock Text="Agregar Ejercicios" Style="{StaticResource ModernTextBlockTitulos}"/>
                 </Border>

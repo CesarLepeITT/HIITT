@@ -1,0 +1,3 @@
+Nombre = juevez(3)
+Activa = True
+Dia = Thursday

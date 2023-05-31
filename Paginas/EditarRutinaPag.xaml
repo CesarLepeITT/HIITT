@@ -31,7 +31,7 @@
             <CheckBox x:Name="checkActiva" Grid.Column="1" Checked="checkActiva_Checked" Unchecked="checkActiva_Unchecked" Margin="0,10"/>
         </Grid>
     </StackPanel>
-    <Button x:Name="btnAgregarRutina" Content="Aceptar" VerticalAlignment="Top" Style="{StaticResource ModernButtonStyle}" Click="btnAgregarRutina_Click" Margin="300,362,300,0"/>
+    <Button x:Name="btnAgregarRutina" Content="Aceptar" VerticalAlignment="Center" Style="{StaticResource ModernButtonStyle}" Click="btnAgregarRutina_Click" Margin="0,200,0,0"/>
     <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
         <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
         <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>
