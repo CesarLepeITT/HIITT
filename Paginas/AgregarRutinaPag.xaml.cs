@@ -61,12 +61,11 @@ namespace GimApp
         {
             if (TodoBien())
             {
-                new Rutinas(_nombre, _activa, _dia);
+                _ = new Rutinas(_nombre, _activa, _dia);
                 _MainFrame.Content = new RutinasPag(_MainFrame);
             }
             else
                 DesplegarPaginaError("Debes de seleccionar un dia de la semana.", cbRADia);
-
         }
 
         private void checkActiva_Checked(object sender, RoutedEventArgs e)
@@ -86,7 +85,7 @@ namespace GimApp
             if (cbRADia.SelectedIndex == 1)
                 _dia = DayOfWeek.Monday;
             if (cbRADia.SelectedIndex == 2)
-                _dia = DayOfWeek.Thursday;
+                _dia = DayOfWeek.Tuesday;
             if (cbRADia.SelectedIndex == 3)
                 _dia = DayOfWeek.Wednesday;
             if (cbRADia.SelectedIndex == 4)

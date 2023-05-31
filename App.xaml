@@ -15,9 +15,6 @@
                 <ResourceDictionary Source="Diccionarios\EstilosRUTINASCSS.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloSubtitulosRutinas.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloBotonesRutinas.xaml"/>
-
-
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

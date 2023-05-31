@@ -34,7 +34,7 @@ namespace GimApp
         {
             if (NavListBox.SelectedIndex == 0)
             {
-                MainPag.Content = new ResumenPag();
+                MainPag.Content = new ResumenPag(MainPag);
             }
             if (NavListBox.SelectedIndex == 1)
             {

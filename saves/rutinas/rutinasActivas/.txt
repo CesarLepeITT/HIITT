@@ -1,0 +1,3 @@
+Nombre = 
+Activa = True
+Dia = Tuesday

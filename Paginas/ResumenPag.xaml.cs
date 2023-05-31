@@ -1,4 +1,5 @@
 ﻿using GimApp.Clases;
+using HIITT.Clases;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,9 +22,85 @@ namespace GimApp
     /// </summary>
     public partial class ResumenPag : Page
     {
-        public ResumenPag()
+        public ResumenPag(Frame mainPage)
         {
             InitializeComponent();
+            _mainFrame = mainPage;
+            GenerarDia("Hoy");
+            GenerarDia("Manaña");
+        }
+        Frame _mainFrame;
+
+        public void GenerarDia(string dia) 
+        {
+            GenerarTitulos(dia);
+            string[] rutinasActivasPath = ManejadorTextos.RutinasActivasPathList();
+            if (rutinasActivasPath.Length > 0)
+                GenerarRutinas(rutinasActivasPath, dia);
+            else
+                GenerarNoRutinasHoy();
+        }
+        //Textos genericos
+        public void GenerarTitulos(string texto)
+        {
+            TextBlock txb = new();
+            txb.Text = texto;
+            txb.HorizontalAlignment = HorizontalAlignment.Left;
+            txb.Margin = new Thickness(10, 10, 0, 0);
+            MainStackPanel.Children.Add(txb);
+        }
+        //Rutinas de hoy
+        public void GenerarRutinas(string[] rutinasActivasPath, string dia)
+        {
+            if (dia == "Hoy")
+                foreach (string f in rutinasActivasPath)
+                    if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.DayOfWeek.ToString())
+                        GenerarTextosRutinas(f);
+            if (dia == "Manaña")
+                foreach (string f in rutinasActivasPath)
+                    if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.DayOfWeek.ToString())
+                        GenerarTextosRutinas(f);
+        }       
+        
+        public void GenerarTextosRutinas(string path)
+        {
+            string nombre = ManejadorTextos.LeerNombreRutina(path);
+            TextBlock txb = new()
+            {
+                Text = nombre,
+                Margin = new Thickness(10, 10, 10, 10),
+            };
+            Grid grd = new();
+            grd.Children.Add(txb);
+            MainStackPanel.Children.Add(grd);
+        }
+
+        // Cuando no hay rutinas
+        public void GenerarNoRutinasHoy()
+        {
+            TextBlock txb = new()
+            {
+                Text = "No tienes rutinas activas, pero nunca es mal momento para agregar una o activar las disponibles.:)",
+                Margin = new Thickness(10, 10, 10, 10),
+            };
+            Button btn = new()
+            {
+                Height = 10,
+                Width = 10,
+                HorizontalAlignment = HorizontalAlignment.Right,
+                Margin = new Thickness(0, 10, 10, 0),
+            };
+            btn.Click += AgregarRutina;
+            Grid grd = new();
+            grd.Children.Add(txb);
+            grd.Children.Add(btn);
+
+            MainStackPanel.Children.Add(grd);
+        }
+
+        private void AgregarRutina(object sender, RoutedEventArgs e)
+        {
+            _mainFrame.Content = new AgregarRutinaPag(_mainFrame);
         }
     }
 }

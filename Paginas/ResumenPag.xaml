@@ -7,11 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="660"
       Title="Resumen">
-    <StackPanel x:Name="ResumenStackPanel">
-        <TextBlock Text="Hoy"/>
-        <Grid>
-            <Button></Button>
-        </Grid>
-        <TextBlock x:Name="prueba" Height="30" />
+    <StackPanel x:Name="MainStackPanel">
+        
     </StackPanel>
 </Page>
