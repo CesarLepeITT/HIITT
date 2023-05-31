@@ -1,4 +1,3 @@
 Nombre = Rutina
 Activa = True
 Dia = Wednesday
-C:/Users/Linux-1/Source/Repos/CesarLepeITT/HIITT/saves/ejercicios/da.txt

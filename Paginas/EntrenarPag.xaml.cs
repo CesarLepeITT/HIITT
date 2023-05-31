@@ -28,15 +28,16 @@ namespace GimApp
         {
             InitializeComponent();
             _mainFrame= mainFrame;
+            _bandera = false;
             GenerarEjercicios();
         }
         Frame _mainFrame;
-
+        bool _bandera;
         public void GenerarEjercicios()
         {
             foreach (string rutinaPath in ManejadorTextos.RutinasActivasPathList())
             {
-               // if (ManejadorTextos.LeerDiaRutina(rutinaPath) == DateTime.Now.DayOfWeek.ToString())
+                if (ManejadorTextos.LeerDiaRutina(rutinaPath) == DateTime.Now.DayOfWeek.ToString())
                     GenerarValoresEjercios(ManejadorTextos.LeerPathEjercicios(rutinaPath));
             }
         }
@@ -45,6 +46,7 @@ namespace GimApp
         {
             foreach (string path in pathsEjercicios)
             {
+                _bandera = true;
                 StackPanel stck = new();
                 Secciones.GenerarTextoNormal("Nombre: "+ManejadorTextos.LeerNombreEjercicio(path),stck);
                 Secciones.GenerarTextoNormal("Series: "+ManejadorTextos.LeerSeriesEjercicio(path),stck);
@@ -54,8 +56,11 @@ namespace GimApp
                 Secciones.GenerarTextoNormal("Maquinaria: " + ManejadorTextos.LeerMaquinariaEjercicio(path),stck);
                 Secciones.GenerarTextoNormal("Grupo muscular: "+ ManejadorTextos.LeerGrupoMuscularEjercicio(path),stck);
                 stck.Margin = new Thickness(10,10,10,10);
-                MainStackPanel.Children.Add(stck); 
+                MainStackPanel.Children.Add(stck);
+                _bandera = true;
             }
+            if (!(_bandera))
+                Secciones.GenerarSubTitulos("No hay ejercicios asignados al dia de hoy;", MainStackPanel);
         }
     }
 }

@@ -1,8 +1,0 @@
-Nombre = da
-Series = 1
-Repeticiones = 1
-PesoCantidad = 1
-PesoUnidad = lbs
-Maquiaria = a
-GrupoMuscular = a
-Path = C:/Users/Linux-1/Source/Repos/CesarLepeITT/HIITT/saves/ejercicios/da.txt

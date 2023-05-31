@@ -1,3 +1,0 @@
-Nombre = ssss
-Activa = True
-Dia = Monday
