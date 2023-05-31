@@ -169,7 +169,7 @@ namespace HIITT.Clases
             using (FileStream fs = File.OpenWrite(pathRutina))
             {
                 fs.Close();
-                File.AppendAllText(pathRutina, pathEjercicio);
+                File.AppendAllText(pathRutina, pathEjercicio+"\n");
             }
         }
     }
