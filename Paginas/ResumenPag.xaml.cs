@@ -58,7 +58,7 @@ namespace GimApp
                         GenerarTextosRutinas(f);
             if (dia == "Manaña")
                 foreach (string f in rutinasActivasPath)
-                    if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.DayOfWeek.ToString())
+                    if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.AddDays(1).DayOfWeek.ToString())
                         GenerarTextosRutinas(f);
         }       
         
