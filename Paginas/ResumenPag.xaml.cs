@@ -24,6 +24,7 @@ namespace GimApp
     {
         public ResumenPag(Frame mainPage)
         {
+
             InitializeComponent();
             _mainFrame = mainPage;
             GenerarDia("Hoy");
@@ -57,10 +58,12 @@ namespace GimApp
         public void GenerarTextosRutinas(string path)
         {
             string nombre = ManejadorTextos.LeerNombreRutina(path);
+
             TextBlock txb = new()
             {
                 Text = nombre,
-                Margin = new Thickness(10, 10, 10, 10),
+                FontSize= 18,
+                Margin = new Thickness(40, 10, 120, 0),
             };
             Grid grd = new();
             grd.Children.Add(txb);
@@ -73,14 +76,14 @@ namespace GimApp
             TextBlock txb = new()
             {
                 Text = "No tienes rutinas activas, pero nunca es mal momento para agregar una o activar las disponibles.:)",
-                Margin = new Thickness(10, 10, 10, 10),
+                Margin = new Thickness(40, 10, 120, 0),
             };
             Button btn = new()
             {
-                Height = 10,
-                Width = 10,
+                Height= 50,
+                Width= 150,
                 HorizontalAlignment = HorizontalAlignment.Right,
-                Margin = new Thickness(0, 10, 10, 0),
+                Margin = new Thickness(40, 10, 120, 0),
             };
             btn.Click += AgregarRutina;
             Grid grd = new();

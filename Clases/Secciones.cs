@@ -10,28 +10,28 @@ namespace HIITT.Clases
 {
     class Secciones
     {
-        public static void GenerarTitulos(string texto, StackPanel mainStackPanel)
+      
+    public static void GenerarTitulos(string texto, StackPanel mainStackPanel)
         {
             TextBlock txb = new();
             txb.Text = texto;
-            txb.HorizontalAlignment = HorizontalAlignment.Left;
-            txb.Margin = new Thickness(10, 10, 0, 0);
+            txb.Style = (Style)Application.Current.Resources["Titulosss"];
             mainStackPanel.Children.Add(txb);
         }
         public static void GenerarSubTitulos(string texto, StackPanel mainStackPanel)
         {
             TextBlock txb = new();
             txb.Text = texto;
-            txb.HorizontalAlignment = HorizontalAlignment.Left;
-            txb.Margin = new Thickness(10, 10, 0, 0);
+            txb.Style = (Style)Application.Current.Resources["Subtitulos"];
             mainStackPanel.Children.Add(txb);
         }
         public static void GenerarTextoNormal(string texto, StackPanel mainStackPanel)
         {
             TextBlock txb = new();
             txb.Text = texto;
-            txb.HorizontalAlignment = HorizontalAlignment.Left;
-            txb.Margin = new Thickness(10, 10, 0, 0);
+            
+            txb.Style = (Style)Application.Current.Resources["TextoNormal"];
+
             mainStackPanel.Children.Add(txb);
         }
     }
