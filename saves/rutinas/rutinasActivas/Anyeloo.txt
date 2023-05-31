@@ -1,0 +1,3 @@
+Nombre = Anyeloo
+Activa = True
+Dia = Monday
