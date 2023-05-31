@@ -165,6 +165,13 @@ namespace GimApp.Paginas
             _mainPage.Content = new EditarRutinaPag(_mainPage, objeto.ToString()[39..]);
         }
 
+        public void BorrarRutina_Click(Object sender, RoutedEventArgs e)
+        {
+            var objeto = e.Source;
+            string nombreRutina = objeto.ToString()[39..];
+            ManejadorTextos.BorrarArchivo(ManejadorTextos.LeerPathRutina(objeto.ToString()[39..]));
+        }
+
         public void AgregarRutinas_click(object sender, RoutedEventArgs e)
         {
             _mainPage.Content = new AgregarRutinaPag(_mainPage);

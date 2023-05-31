@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HIITT.Clases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,33 @@ namespace HIITT.Paginas
         public EjerciciosPag()
         {
             InitializeComponent();
+
+            btnEditarEjercicio.Click += BtnEditarEjercicio_Click;
+            btnBorrarEjercico.Click += BtnBorrarEjercico_Click;
+
+            Secciones.GenerarSubTitulos("Ejercicios Activos", MainStackPanel);
+
+        }
+        Button btnEditarEjercicio;
+        Button btnBorrarEjercico;
+        public void DesplegarEjerciciosActivos()
+        {
+            foreach (string rutinaActiva in ManejadorTextos.RutinasActivasPathList()) 
+            {
+
+            }
+
+          //Secciones.SeccionNombreEditarBorrar()
+        }
+       // public void DesplegarEjerciciosActivos()
+        public void BtnBorrarEjercico_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void BtnEditarEjercicio_Click(object sender, RoutedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
     }
 }

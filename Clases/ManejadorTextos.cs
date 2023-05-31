@@ -21,6 +21,8 @@ namespace HIITT.Clases
         GrupoMuscular = grupomuscularingresado
          */
 
+        public static void BorrarArchivo(string path) => File.Delete(path);
+
         private static string LectorPropiedad(string path, string nombrePropiedad)
         {
             string valor = "Error";
@@ -161,7 +163,6 @@ namespace HIITT.Clases
                 pathRutina += $@"\rutinasInactivas\{nombreRutina}.txt";
             return pathRutina;
         }
-
         public static void AgregarPathEjercicioARutina(string nombreEjercicio, string nombreRutina)
         {
             string pathEjercicio = ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
