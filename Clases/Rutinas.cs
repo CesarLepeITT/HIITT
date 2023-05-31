@@ -13,20 +13,13 @@ namespace GimApp.Clases
     {
         public Rutinas(string? nombre, bool activa, DayOfWeek dia)
         {
-           if (nombre == "" || nombre == null || string.IsNullOrEmpty(nombre) || string.IsNullOrWhiteSpace(nombre))
-                Nombre = "Rutina";
+            if (nombre == "" || nombre == null || string.IsNullOrEmpty(nombre) || string.IsNullOrWhiteSpace(nombre))
+                nombre = "Rutina";
+            Nombre = nombre;
             Activa = activa;
             Dia = dia;
-            //CrearArchivoRutina(activa);
-            //if (activa)
-            //    CrearArchivoRutinaActiva();
-            //else 
-            //    CrearArchivoRutinaInactiva();
-
             CrearArchivoRutina(activa);
-
         }
-        //No funciona como debe, cicla el programa
         private void CrearArchivoRutina(bool activa)
         {
             //Definir el path de rutinas activas
@@ -43,18 +36,6 @@ namespace GimApp.Clases
             }
             if (aux != "")
                 Nombre = aux;
-
-            ////Define el path de las rutinas inactivas
-            //string pathRutinaInactivas = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasInactivas\{Nombre}.txt", UriKind.RelativeOrAbsolute).ToString().Substring(8);
-            //aux = "";
-            //while (File.Exists(pathRutinaInactivas))//Revisa que no haya un texto con el mismo path
-            //{
-            //    aux = Nombre + $"({contador})";
-            //    pathRutinaInactivas = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\rutinas\rutinasInactivas\{aux}.txt", UriKind.RelativeOrAbsolute).ToString().Substring(8);
-            //    contador++;
-            //}
-            //if (aux != "")
-            //    Nombre = aux;
 
             if (activa)
             {
