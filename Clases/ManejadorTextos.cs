@@ -41,21 +41,21 @@ namespace HIITT.Clases
             path = path.Substring(8);
             return Directory.GetFiles(path);
         }
-        public  string LeerEjercicio(string path)
+        public string LeerEjercicio(string path)
         {
             string ejercicio = string.Empty;
 
             StringBuilder sb = new StringBuilder();
-                sb.AppendLine("Nombre: " + LeerNombreEjercicio(path));
-                sb.AppendLine("Series: " + LeerSeriesEjercicio(path));
-                sb.AppendLine("Repeticiones: " + LeerRepeticionesEjercicio(path));
-                sb.AppendLine("Peso Cantidad: " + LeerCantidadPesoEjercicio(path));
-                sb.AppendLine("Peso Unidad: " + LeerUnidadPesoEjercicio(path));
-                sb.AppendLine("Maquinaria: " + LeerMaquinariaEjercicio(path));
-                sb.AppendLine("Grupo Muscular: " + LeerGrupoMuscularEjercicio(path));
+            sb.AppendLine("Nombre: " + LeerNombreEjercicio(path));
+            sb.AppendLine("Series: " + LeerSeriesEjercicio(path));
+            sb.AppendLine("Repeticiones: " + LeerRepeticionesEjercicio(path));
+            sb.AppendLine("Peso Cantidad: " + LeerCantidadPesoEjercicio(path));
+            sb.AppendLine("Peso Unidad: " + LeerUnidadPesoEjercicio(path));
+            sb.AppendLine("Maquinaria: " + LeerMaquinariaEjercicio(path));
+            sb.AppendLine("Grupo Muscular: " + LeerGrupoMuscularEjercicio(path));
 
-                ejercicio = sb.ToString();
-            
+            ejercicio = sb.ToString();
+
 
             return ejercicio;
         }
@@ -75,7 +75,7 @@ namespace HIITT.Clases
         public static string LeerMaquinariaEjercicio(string path) => ManejadorTextos.LectorPropiedad(path, "Maquinaria");
 
         public static string LeerGrupoMuscularEjercicio(string path) => ManejadorTextos.LectorPropiedad(path, "GrupoMuscular");
-        public static string LeerPathEjercicio(string nombre) 
+        public static string LeerPathEjercicio(string nombre)
         {
             Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\{nombre}.txt", UriKind.RelativeOrAbsolute);
             string path = myUri.ToString();
@@ -113,9 +113,26 @@ namespace HIITT.Clases
         public static string LeerRutina(string path) { return "No implementado"; }
 
         public static string LeerNombreRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Nombre");
-
         public static string LeerDiaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Dia");
+        public static DayOfWeek LeerDiaRutinadayToOfWeek(string path)
+        {
+            string diaString = ManejadorTextos.LectorPropiedad(path, "Dia");
+            DayOfWeek diaSemana = DayOfWeek.Saturday;
+            for (int i = 0; i < 7; i++)
+            {
+                diaSemana = (DayOfWeek)i;
+                if (diaString == diaSemana.ToString())
+                    return diaSemana;
+            }
+            return diaSemana;
+        }
         public static string LeerEsActivaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Activa");
+        public static bool LeerEsActivaRutinaToBool(string path)
+        {
+            if (ManejadorTextos.LectorPropiedad(path, "Activa") == "True")
+                return true;
+            else return false;
+        }
         public static string[] LeerPathEjercicios(string pathRutina)
         {
             List<string> pathsEjercicios = new();

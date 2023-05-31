@@ -34,5 +34,8 @@ namespace HIITT.Clases
             txb.Margin = new Thickness(10, 10, 0, 0);
             mainStackPanel.Children.Add(txb);
         }
+
+
+
     }
 }
