@@ -7,8 +7,35 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EditarRutinaPag">
-
-    <StackPanel>
-        
+    <Grid>
+        <StackPanel x:Name="MainStackPanel">
+            <TextBlock Text="Editor de rutinas" Style="{StaticResource ModernTextBlockTitulos}"/>
+        <TextBlock Text="Nombre de su rutina" Style="{StaticResource ModernTextBlockStyle}"/>
+        <TextBox x:Name="tbNombre" Style="{StaticResource ModernTextBoxStyle}" TextChanged="tbARNombre_TextChanged"/>
+        <TextBlock Text="Dia de realizacion" Style="{StaticResource ModernTextBlockStyle}" />
+        <ComboBox x:Name="cbRADia" SelectionChanged="cbRADia_SelectionChanged" Margin="40,10,120,0" >
+            <ComboBoxItem x:Name="cbiDomingo" Content="Domingo"/>
+            <ComboBoxItem x:Name="cbiLunes" Content="Lunes"/>
+            <ComboBoxItem x:Name="cbiMartes" Content="Martes"/>
+            <ComboBoxItem x:Name="cbiMiercoles" Content="Miercoles"/>
+            <ComboBoxItem x:Name="cbiJueves" Content="Jueves"/>
+            <ComboBoxItem x:Name="cbiViernes" Content="Viernes"/>
+            <ComboBoxItem x:Name="cbiSabado" Content="Sabado"/>
+        </ComboBox>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Activar" Grid.Column="0" Style="{StaticResource ModernTextBlockStyle}" />
+            <CheckBox x:Name="checkActiva" Grid.Column="1" Checked="checkActiva_Checked" Unchecked="checkActiva_Unchecked" Margin="0,10"/>
+        </Grid>
     </StackPanel>
+    <Button x:Name="btnAgregarRutina" Content="Aceptar" VerticalAlignment="Top" Style="{StaticResource ModernButtonStyle}" Click="btnAgregarRutina_Click" Margin="300,362,300,0"/>
+    <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
+        <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
+        <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>
+        <Button x:Name="ErrorGridAceptar" Content="Aceptar" Width="100" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Click="ErrorGridAceptar_Click"/>
+    </Grid>
+    </Grid>
 </Page>

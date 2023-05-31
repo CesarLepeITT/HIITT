@@ -85,7 +85,7 @@ namespace GimApp.Paginas
                     nombre.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
 
                     Button editar = new Button();
-                    editar.Content = "Editar";
+                    editar.Content = "Editar" + $" {nombre.Text}";
                     editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     editar.Click += new RoutedEventHandler(EditarRutina_Click);
 
@@ -127,7 +127,7 @@ namespace GimApp.Paginas
                     nombre.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
 
                     Button editar = new Button();
-                    editar.Content = "Editar";
+                    editar.Content = "Editar" + $" {nombre.Text}";
                     editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     editar.Click += new RoutedEventHandler(EditarRutina_Click);
 
@@ -160,7 +160,8 @@ namespace GimApp.Paginas
 
         public void EditarRutina_Click(object sender, RoutedEventArgs e)
         {
-            _mainPage.Content = new EditarRutinaPag(_mainPage);
+            var objeto = e.Source;
+            _mainPage.Content = new EditarRutinaPag(_mainPage, objeto.ToString()[39..]);
         }
 
         public void AgregarRutinas_click(object sender, RoutedEventArgs e)
