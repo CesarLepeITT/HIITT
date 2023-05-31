@@ -1,0 +1,8 @@
+Nombre = Ejercicio
+Series = 1
+Repeticiones = 1
+PesoCantidad = 1
+PesoUnidad = lbs
+Maquiaria = maquinaria
+GrupoMuscular = grupo
+Path = C:/Users/Linux-1/Source/Repos/CesarLepeITT/HIITT/saves/ejercicios/Ejercicio.txt

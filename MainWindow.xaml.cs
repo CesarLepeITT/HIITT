@@ -38,7 +38,7 @@ namespace GimApp
             }
             if (NavListBox.SelectedIndex == 1)
             {
-                MainPag.Content = new EjerciciosPag();
+                MainPag.Content = new EntrenarPag(MainPag);
             }
             if (NavListBox.SelectedIndex == 2)
             {

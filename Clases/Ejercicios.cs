@@ -130,7 +130,8 @@ namespace GimApp.Clases
                 $"PesoCantidad = {_peso.Cantidad}\n" +
                 $"PesoUnidad = {_peso.Unidad}\n" +
                 $"Maquiaria = {_maquinaria}\n" +
-                $"GrupoMuscular = {_grupoMuscular}";
+                $"GrupoMuscular = {_grupoMuscular}\n" +
+                $"Path = {PathTxt}";
         }
 
         public void EditarEjercicio(string nombreEjercicio, int series, int repeticiones, Peso peso, string maquinaria, string grupoMuscular, string rutinaContenedora)
