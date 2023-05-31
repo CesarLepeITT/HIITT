@@ -145,23 +145,16 @@ namespace HIITT.Paginas
             {
                 new Ejercicios(_nombreEjercicio, _series, _repeticiones, _peso, _maquinaria, _grupoMuscular, _rutinaAlmacenadora);
                 DefinirRutinaAlmacenadora();
+                tbAENombre.Text = _rutinaAlmacenadora;
                 ManejadorTextos.AgregarPathEjercicioARutina(_nombreEjercicio,_rutinaAlmacenadora);
             }
         }
 
         private void DefinirRutinaAlmacenadora()
         {
-            //cbAERutinaContenedora.SelectedIndex
-
-            //Encuentra el index seleccionad
-            //Revisa su nombre
-
             object obj = cbAERutinaContenedora.SelectedItem;
             _rutinaAlmacenadora = obj.ToString();
-            _rutinaAlmacenadora = _rutinaAlmacenadora.Substring(39);
-            
-
-
+            _rutinaAlmacenadora = _rutinaAlmacenadora[38..];
         }
 
         //TODO: Corregir funcionamiento de las funciones que revisan los inputs de codigo
