@@ -1,0 +1,4 @@
+Nombre = Hoy
+Activa = True
+Dia = Wednesday
+C:/Users/TecNM-ITT/Source/Repos/CesarLepeITT/HIITT/saves/ejercicios/Da.txt

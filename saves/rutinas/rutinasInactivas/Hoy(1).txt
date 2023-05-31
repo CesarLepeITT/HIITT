@@ -1,0 +1,3 @@
+Nombre = Hoy(1)
+Activa = False
+Dia = Wednesday

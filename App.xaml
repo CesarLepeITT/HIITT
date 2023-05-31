@@ -16,9 +16,6 @@
                 <ResourceDictionary Source="Diccionarios\Titulosss.xaml"/>
                 <ResourceDictionary Source="Diccionarios\Subtitulos.xaml"/>
                 <ResourceDictionary Source="Diccionarios\TextoNormal.xaml"/>
-
-
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

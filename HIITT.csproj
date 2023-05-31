@@ -18,6 +18,8 @@
     <Folder Include="Imagenes\" />
     <Compile Remove="Clases\saves\**" />
     <EmbeddedResource Remove="Clases\saves\**" />
+    <Folder Include="saves\ejercicios\" />
+    <Folder Include="saves\rutinas\rutinasActivas\" />
     <Folder Include="saves\rutinas\rutinasInactivas\" />
     <None Remove="Clases\saves\**" />
     <Page Remove="Clases\saves\**" />

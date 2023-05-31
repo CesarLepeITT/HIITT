@@ -1,0 +1,8 @@
+Nombre = 
+Series = 1
+Repeticiones = 1
+PesoCantidad = 1
+PesoUnidad = lbs
+Maquiaria = 
+GrupoMuscular = 
+Path = C:/Users/TecNM-ITT/Source/Repos/CesarLepeITT/HIITT/saves/ejercicios/.txt
