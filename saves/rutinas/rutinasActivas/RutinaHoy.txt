@@ -1,0 +1,3 @@
+Nombre = RutinaHoy
+Activa = True
+Dia = Thursday

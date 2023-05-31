@@ -20,6 +20,23 @@ namespace HIITT.Clases
         PesoUnidad = unidadpeso
         GrupoMuscular = grupomuscularingresado
          */
+
+        public static string LectorPropiedad(string path, string nombrePropiedad)
+        {
+            using (StreamReader reader = new StreamReader(path))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.StartsWith(nombrePropiedad))
+                    {
+                        nombrePropiedad = line.Substring(nombrePropiedad.Length + 3);
+                    }
+                }
+            }
+            return nombrePropiedad;
+        }
+
         public string[] EjerciciosPathList()
         {
             Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\", UriKind.RelativeOrAbsolute);
@@ -260,25 +277,11 @@ namespace HIITT.Clases
 
         public static string LeerNombreRutina(string path) 
         {
-            string nombre = string.Empty;
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    if (line.StartsWith("Nombre"))
-                    {
-                        nombre = line.Remove(0, 8);
-                    }
-                }
-            }
-            return nombre;
+            return ManejadorTextos.LectorPropiedad(path, "Nombre");
         }
 
-        public static string LeerDiaRutina(string path) { return "No implementado"; }
-
-        public static string LeerEsActivaRutina(string path) { return "No implementado"; }
-
+        public static string LeerDiaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Dia");
+        public static string LeerEsActivaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Activa");
         //public static string[] LeerPathEjercicios(string pathRutina) 
         //{
 

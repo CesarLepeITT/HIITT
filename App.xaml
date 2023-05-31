@@ -13,7 +13,6 @@
                 <ResourceDictionary Source="Diccionarios\EstiloBotones.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloSatackPanel.xaml"/>
                 <ResourceDictionary Source="Diccionarios\titulos.xaml"/>
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

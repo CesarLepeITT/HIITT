@@ -86,7 +86,7 @@ namespace GimApp
             if (cbRADia.SelectedIndex == 1)
                 _dia = DayOfWeek.Monday;
             if (cbRADia.SelectedIndex == 2)
-                _dia = DayOfWeek.Thursday;
+                _dia = DayOfWeek.Tuesday;
             if (cbRADia.SelectedIndex == 3)
                 _dia = DayOfWeek.Wednesday;
             if (cbRADia.SelectedIndex == 4)
