@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="660"
       Title="Resumen">
-    <StackPanel x:Name="MainStackPanel">
-        
-    </StackPanel>
+    <ScrollViewer>
+        <StackPanel x:Name="MainStackPanel"/>
+    </ScrollViewer>
 </Page>
