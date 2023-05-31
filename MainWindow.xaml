@@ -8,53 +8,49 @@
         Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="140"/>
+            <ColumnDefinition Width="180"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-
-        <StackPanel Background="Gold">
+        
+            <StackPanel Background="Gold">
             <Grid Margin="0,5,0,5" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <TextBlock Text="HIITT" FontFamily="Century Gothic" FontSize="25" FontWeight="ExtraBold" Foreground="#072005"/>
+                <TextBlock Text="HIITT" FontFamily="Century Gothic" FontSize="30" FontWeight="ExtraBold" Foreground="#072005"/>
             </Grid>
             <Rectangle Height="2" Fill="Black" Width="110" Margin="0,0,0,5"/>
             <ListBox x:Name="NavListBox" SelectionChanged="NavItemSelection" SelectionMode="Single" FontFamily="Century Gothic" FontSize="14" Foreground="#072005" Background="Transparent" FontWeight="Bold" BorderBrush="Transparent" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBoxItem x:Name="ResumenListBoxItem">
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/gimnasio (3).png"/>
-                        <TextBlock Text="Resumen" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
+                        <Image Height="30" Width="30" Source="/gimnasio (3).png"/>
+                        <TextBlock Text="Resumen" Style="{StaticResource ModernTextBlockStyle}" Margin="10,13,0,13" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/Entrenar.png"/>
-                        <TextBlock Text="Entrenar" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
+                        <Image Height="30" Width="30" Source="/Entrenar.png"/>
+                        <TextBlock Text="Entrenar" Style="{StaticResource ModernTextBlockStyle}" Margin="10,13,0,13" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem> 
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/Entrenar.png"/>
-                        <TextBlock Text="Ejercicios" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
+                        <Image Height="30" Width="30" Source="/ejercicios-de-estiramiento.png"/>
+                        <TextBlock Text="Ejercicios" Style="{StaticResource ModernTextBlockStyle}" Margin="10,13,0,13" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/rutina.png"/>
-                        <TextBlock Text="Rutinas" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
+                        <Image Height="30" Width="30" Source="/rutina.png"/>
+                        <TextBlock Text="Rutinas" Style="{StaticResource ModernTextBlockStyle}" Margin="10,13,0,13" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
                 <ListBoxItem>
                     <StackPanel Orientation="Horizontal">
-                        <Image Height="25" Width="25" Source="/calendario (1).png"/>
-                        <TextBlock Text="Calendario" Style="{StaticResource ModernTextBlockStyle}" Margin="10,0,0,0" Background="Transparent"/>
+                        <Image Height="30" Width="30" Source="/calendario (1).png"/>
+                        <TextBlock Text="Calendario" Style="{StaticResource ModernTextBlockStyle}" Margin="10,13,0,13" Background="Transparent"/>
                     </StackPanel>
                 </ListBoxItem>
             </ListBox>
         </StackPanel>
-        <Frame x:Name="MainPag" Navigated="Main_Navigated" NavigationUIVisibility="Visible" Grid.Column="1" AutomationProperties.IsColumnHeader="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
-        <Button Style="{DynamicResource ButtonStyle1}"  Content=""
-                Name="btnAgregarEjercicio" Width="25" Height="25"
-                Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Right"
-                Margin="0,0,65,65" Click="AgregarEjercicio_Click">
-        </Button>
+        <Frame x:Name="MainPag" Navigated="Main_Navigated"  NavigationUIVisibility="Visible" Grid.Column="1" AutomationProperties.IsColumnHeader="True" ScrollViewer.CanContentScroll="True" ScrollViewer.VerticalScrollBarVisibility="Auto"/>
+        
     </Grid>
 </Window>

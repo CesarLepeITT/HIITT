@@ -1,0 +1,3 @@
+Nombre = aaaa
+Activa = True
+Dia = Sunday
