@@ -26,20 +26,17 @@ namespace GimApp
         {
             InitializeComponent();
             _mainFrame = mainPage;
-            GenerarHoy();
-            //GenerarManana()
+            GenerarDia("Hoy");
+            GenerarDia("Manaña");
         }
         Frame _mainFrame;
 
-        //public void GenerarDia(string dia) { }
-
-
-        public void GenerarHoy()
+        public void GenerarDia(string dia) 
         {
-            GenerarTitulos("Hoy");
+            GenerarTitulos(dia);
             string[] rutinasActivasPath = ManejadorTextos.RutinasActivasPathList();
             if (rutinasActivasPath.Length > 0)
-                GenerarRutinasHoy(rutinasActivasPath);
+                GenerarRutinas(rutinasActivasPath, dia);
             else
                 GenerarNoRutinasHoy();
         }
@@ -53,22 +50,16 @@ namespace GimApp
             MainStackPanel.Children.Add(txb);
         }
         //Rutinas de hoy
-        public void GenerarRutinasHoy(string[] rutinasActivasPath)
+        public void GenerarRutinas(string[] rutinasActivasPath, string dia)
         {
-            foreach (string f in rutinasActivasPath)
-                if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.DayOfWeek.ToString())
-                    GenerarTextosRutinas(f);
-                else
-                {
-                    TextBlock txb = new();
-                    txb.Text = ManejadorTextos.LeerDiaRutina(f);
-                    MainStackPanel.Children.Add(txb);  
-                    TextBlock txb2 = new();
-                    txb2.Text = DateTime.Now.DayOfWeek.ToString();
-                    MainStackPanel.Children.Add(txb2);
-
-                }
-                    
+            if (dia == "Hoy")
+                foreach (string f in rutinasActivasPath)
+                    if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.DayOfWeek.ToString())
+                        GenerarTextosRutinas(f);
+            if (dia == "Manaña")
+                foreach (string f in rutinasActivasPath)
+                    if (ManejadorTextos.LeerDiaRutina(f) == DateTime.Now.DayOfWeek.ToString())
+                        GenerarTextosRutinas(f);
         }       
         
         public void GenerarTextosRutinas(string path)

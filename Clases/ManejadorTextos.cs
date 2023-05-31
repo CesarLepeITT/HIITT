@@ -23,18 +23,15 @@ namespace HIITT.Clases
 
         public static string LectorPropiedad(string path, string nombrePropiedad)
         {
+            string valor = "Error";
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
-                {
                     if (line.StartsWith(nombrePropiedad))
-                    {
-                        nombrePropiedad = line.Substring(nombrePropiedad.Length + 3);
-                    }
-                }
+                        valor = line.Substring(nombrePropiedad.Length + 3);
             }
-            return nombrePropiedad;
+            return valor;
         }
 
         public string[] EjerciciosPathList()
@@ -275,11 +272,7 @@ namespace HIITT.Clases
         }
         public static string LeerRutina(string path) { return "No implementado"; }
 
-        public static string LeerNombreRutina(string path) 
-        {
-            return ManejadorTextos.LectorPropiedad(path, "Nombre");
-        }
-
+        public static string LeerNombreRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Nombre");
         public static string LeerDiaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Dia");
         public static string LeerEsActivaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Activa");
         //public static string[] LeerPathEjercicios(string pathRutina) 
