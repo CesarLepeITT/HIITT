@@ -2,6 +2,7 @@
 using HIITT.Clases;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -23,19 +24,19 @@ namespace GimApp
     /// </summary>
     public partial class EntrenarPag : Page
     {
-        public EntrenarPag()
+        public EntrenarPag(Frame mainFrame)
         {
             InitializeComponent();
+            _mainFrame= mainFrame;
+            GenerarEjercicios();
         }
+        Frame _mainFrame;
 
         public void GenerarEjercicios()
         {
-            string[] rutinasActivas = ManejadorTextos.RutinasActivasPathList();
-            string[] diasDeLaSemanaIngles = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-
-            foreach (string rutinaPath in rutinasActivas)
+            foreach (string rutinaPath in ManejadorTextos.RutinasActivasPathList())
             {
-                if (ManejadorTextos.LeerDiaRutina(rutinaPath) == DateTime.Now.DayOfWeek.ToString())
+               // if (ManejadorTextos.LeerDiaRutina(rutinaPath) == DateTime.Now.DayOfWeek.ToString())
                     GenerarValoresEjercios(ManejadorTextos.LeerPathEjercicios(rutinaPath));
             }
         }
@@ -45,15 +46,15 @@ namespace GimApp
             foreach (string path in pathsEjercicios)
             {
                 StackPanel stck = new();
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerNombreEjercicio(path),stck);
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerSeriesEjercicio(path),stck);
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerRepeticionesEjercicio(path),stck);
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerCantidadPesoEjercicio(path),stck);
+                Secciones.GenerarTextoNormal("Nombre: "+ManejadorTextos.LeerNombreEjercicio(path),stck);
+                Secciones.GenerarTextoNormal("Series: "+ManejadorTextos.LeerSeriesEjercicio(path),stck);
+                Secciones.GenerarTextoNormal("Repeticones: " +ManejadorTextos.LeerRepeticionesEjercicio(path),stck);
+                Secciones.GenerarTextoNormal("Peso: " + ManejadorTextos.LeerCantidadPesoEjercicio(path),stck);
                 Secciones.GenerarTextoNormal(ManejadorTextos.LeerUnidadPesoEjercicio(path),stck);
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerMaquinariaEjercicio(path),stck);
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerGrupoMuscularEjercicio(path),stck);
-
+                Secciones.GenerarTextoNormal("Maquinaria: " + ManejadorTextos.LeerMaquinariaEjercicio(path),stck);
+                Secciones.GenerarTextoNormal("Grupo muscular: "+ ManejadorTextos.LeerGrupoMuscularEjercicio(path),stck);
                 stck.Margin = new Thickness(10,10,10,10);
+                MainStackPanel.Children.Add(stck); 
             }
         }
     }

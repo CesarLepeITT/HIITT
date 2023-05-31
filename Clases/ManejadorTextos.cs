@@ -118,19 +118,19 @@ namespace HIITT.Clases
         public static string LeerEsActivaRutina(string path) => ManejadorTextos.LectorPropiedad(path, "Activa");
         public static string[] LeerPathEjercicios(string pathRutina)
         {
-            string[] PathsEjercicios = {"Rutina sin ejercicios."};
+            List<string> pathsEjercicios = new();
+            string pathEjercicio;
+            int linea = 0;
             using (StreamReader reader = new StreamReader(pathRutina))
             {
-                string pathEjercicio;
-                int linea = 0;
-                while (reader.ReadLine() != null)
+                while ((pathEjercicio = reader.ReadLine()) != null)
                 {
                     linea++;
                     if (linea > 3)
-                        PathsEjercicios[linea - 4] = reader.ReadLine();
+                        pathsEjercicios.Add(pathEjercicio);
                 }
             }
-            return PathsEjercicios;
+            return pathsEjercicios.ToArray();
         }
         public static string LeerPathRutina(string nombreRutina)
         {
@@ -149,11 +149,10 @@ namespace HIITT.Clases
         {
             string pathEjercicio = ManejadorTextos.LeerPathEjercicio(nombreEjercicio);
             string pathRutina = ManejadorTextos.LeerPathRutina(nombreRutina);
-            while (!IsFileReady(fileData.Name)) { }
             using (FileStream fs = File.OpenWrite(pathRutina))
             {
-                File.AppendAllText(pathRutina, pathEjercicio);
                 fs.Close();
+                File.AppendAllText(pathRutina, pathEjercicio);
             }
         }
     }
