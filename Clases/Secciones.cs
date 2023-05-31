@@ -35,7 +35,26 @@ namespace HIITT.Clases
             mainStackPanel.Children.Add(txb);
         }
 
+        public static Grid SeccionNombreEditarBorrar(string texto, Button botonEditar, Button botonBorrar) 
+        {
+            Grid grd = new Grid();
+            grd.Style = (Style)Application.Current.Resources["EstiloSeccionNombreEditarBorrar"];
+    
 
+            TextBlock txb = new()
+            {
+                Text = texto
+                
+            };
 
+            botonEditar.Content = $"Editar {texto}";
+            // Agregar estilo botonEditar.Style
+
+            grd.Children.Add(txb);
+            grd.Children.Add(botonEditar);
+            grd.Children.Add(botonBorrar);
+
+            return grd;
+        }
     }
 }

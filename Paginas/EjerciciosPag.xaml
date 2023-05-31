@@ -9,6 +9,6 @@
       Title="EjerciciosPag">
 
     <Grid>
-        
+        <StackPanel x:Name="MainStackPanel"/>
     </Grid>
 </Page>
