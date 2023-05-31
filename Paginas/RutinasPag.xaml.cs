@@ -29,26 +29,26 @@ namespace GimApp.Paginas
             
             _rutinasPathListActivas = ManejadorTextos.RutinasActivasPathList();
             _rutinasPathListInactivas = ManejadorTextos.RutinasInactivasPathList();
-            
+            TextBlock txttitulo = new();
+            txttitulo.Text = "Administrador De Rutinas";
+            txttitulo.Style = (Style)Application.Current.Resources["ModernTextBlockTitulos"];
+            stckpMainStackPanel.Children.Add(txttitulo);
+
             if (_rutinasPathListInactivas.Length > 0 || _rutinasPathListActivas.Length > 0)
             {
+              
                 //Esto es un textblock
                 TextBlock txt1 = new();
                 txt1.Text = "Rutinas Activas";
-                txt1.VerticalAlignment = VerticalAlignment.Top;
-                txt1.HorizontalAlignment = HorizontalAlignment.Center;
-                txt1.Margin = new Thickness(0, 10, 0, 10);
-                //Asi se agrega n estilo desde c# (code begind)
-                //txt1.Style = (Style)Application.Current.Resources["ModernTextBlockStyle"];
+                txt1.Style = (Style)Application.Current.Resources["SubtitulosRutinas"];
 
                 stckpMainStackPanel.Children.Add(txt1);
                 GenerarRutinasActivas();
 
                 TextBlock txt2 = new();
                 txt2.Text = "Rutinas Inactivas";
-                txt2.VerticalAlignment = VerticalAlignment.Top;
-                txt2.HorizontalAlignment = HorizontalAlignment.Center;
-                txt2.Margin = new Thickness(0, 10, 0, 10);
+                txt2.Style = (Style)Application.Current.Resources["SubtitulosRutinas"];
+
                 stckpMainStackPanel.Children.Add(txt2);
                 GenerarRutinasInactivas();
 
@@ -57,13 +57,12 @@ namespace GimApp.Paginas
             {
                 TextBlock noRutinas = new TextBlock();
                 noRutinas.Text = "No hay rutinas aún, pero nunca es mal momento para agregar una. :)";
+                noRutinas.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
 
                 Button agregarRutinas = new Button();
-                agregarRutinas.Height = 30;
-                agregarRutinas.Width = 200;
-                agregarRutinas.VerticalAlignment = VerticalAlignment.Bottom;
                 agregarRutinas.Content = "Agregar rutina";
                 agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
+                agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
 
                 stckpMainStackPanel.Children.Add(noRutinas);
                 stckpMainStackPanel.Children.Add(agregarRutinas);
@@ -83,16 +82,11 @@ namespace GimApp.Paginas
                 {
                     TextBlock nombre = new TextBlock();
                     nombre.Text = ManejadorTextos.LeerNombreRutina(f);
-                    nombre.VerticalAlignment = VerticalAlignment.Top;
-                    nombre.HorizontalAlignment = HorizontalAlignment.Left;
-                    nombre.Margin = new Thickness(10, 10, 0, 0);
+                    nombre.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
 
                     Button editar = new Button();
-                    editar.Width = 30;
-                    editar.Height = 30;
-                    editar.VerticalAlignment = VerticalAlignment.Top;
-                    editar.HorizontalAlignment = HorizontalAlignment.Right;
-                    editar.Margin = new Thickness(0, 10, 10, 0);
+                    editar.Content = "Editar";
+                    editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     editar.Click += new RoutedEventHandler(EditarRutina_Click);
 
                     Grid grd = new();
@@ -105,9 +99,8 @@ namespace GimApp.Paginas
                     stckpMainStackPanel.Children.Add(grd);
 
                     Button agregarRutinas = new Button();
-                    agregarRutinas.Height = 30;
-                    agregarRutinas.Width = 200;
-                    agregarRutinas.VerticalAlignment = VerticalAlignment.Bottom;
+                    agregarRutinas.Content = "Agregar rutina";
+                    agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
 
                     rpMainGrid.Children.Add(agregarRutinas);
@@ -117,7 +110,7 @@ namespace GimApp.Paginas
             {
                 TextBlock txb = new TextBlock();
                 txb.Text = "Aun no hay rutinas activas.";
-                txb.Margin = new Thickness(10, 0, 0, 0);
+                txb.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
                 stckpMainStackPanel.Children.Add(txb);
             }
         }
@@ -131,16 +124,11 @@ namespace GimApp.Paginas
                 {
                     TextBlock nombre = new TextBlock();
                     nombre.Text = ManejadorTextos.LeerNombreRutina(f);
-                    nombre.VerticalAlignment = VerticalAlignment.Top;
-                    nombre.HorizontalAlignment = HorizontalAlignment.Left;
-                    nombre.Margin = new Thickness(10, 10, 0, 0);
+                    nombre.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
 
                     Button editar = new Button();
-                    editar.Width = 30;
-                    editar.Height = 30;
-                    editar.VerticalAlignment = VerticalAlignment.Top;
-                    editar.HorizontalAlignment = HorizontalAlignment.Right;
-                    editar.Margin = new Thickness(0, 10, 10, 0);
+                    editar.Content = "Editar";
+                    editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     editar.Click += new RoutedEventHandler(EditarRutina_Click);
 
                     Grid grd = new();
@@ -153,9 +141,9 @@ namespace GimApp.Paginas
                     stckpMainStackPanel.Children.Add(grd);
 
                     Button agregarRutinas = new Button();
-                    agregarRutinas.Height = 30;
-                    agregarRutinas.Width = 200;
-                    agregarRutinas.VerticalAlignment = VerticalAlignment.Bottom;
+                    agregarRutinas.Content = "Agregar Rutina";
+                    agregarRutinas.Foreground = new SolidColorBrush(Colors.White);
+                    agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
 
                     rpMainGrid.Children.Add(agregarRutinas);
@@ -165,7 +153,7 @@ namespace GimApp.Paginas
             {
                 TextBlock txb = new TextBlock();
                 txb.Text = "No hay rutinas inactivas.";
-                txb.Margin = new Thickness(10, 0, 0, 0);
+                txb.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
                 stckpMainStackPanel.Children.Add(txb);
             }
         }

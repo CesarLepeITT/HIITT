@@ -6,13 +6,17 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Diccionarios\EstiloButtonAgregar.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloStackPanel.xaml"/>
                 <ResourceDictionary Source="Diccionarios\Estilotexbox.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloTEXbloq.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloBotones.xaml"/>
                 <ResourceDictionary Source="Diccionarios\EstiloSatackPanel.xaml"/>
                 <ResourceDictionary Source="Diccionarios\titulos.xaml"/>
+                <ResourceDictionary Source="Diccionarios\EstilosRUTINASCSS.xaml"/>
+                <ResourceDictionary Source="Diccionarios\EstiloSubtitulosRutinas.xaml"/>
+                <ResourceDictionary Source="Diccionarios\EstiloBotonesRutinas.xaml"/>
+
+
 
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
