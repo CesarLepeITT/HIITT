@@ -50,7 +50,7 @@ namespace GimApp
             foreach (string rutinaPath in ManejadorTextos.RutinasActivasPathList())
             {
                 if (ManejadorTextos.LeerDiaRutina(rutinaPath) == DateTime.Now.DayOfWeek.ToString())
-                    GenerarValoresEjercios(ManejadorTextos.LeerPathEjercicios(rutinaPath));
+                    GenerarValoresEjercios(ManejadorTextos.LeerPathsEjerciciosEnRutina(rutinaPath));
             }
         }
 

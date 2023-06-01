@@ -24,169 +24,59 @@ namespace HIITT.Paginas
     {
         public EjerciciosPag(Frame mainPage)
         {
-            _mainPage = mainPage;
+            _mainFrame = mainPage;
             InitializeComponent();
 
-            _rutinasPathListActivas = ManejadorTextos.RutinasActivasPathList();
-            _rutinasPathListInactivas = ManejadorTextos.RutinasInactivasPathList();
-            TextBlock txttitulo = new();
-            txttitulo.Text = "Administrador De Ejercicios";
-            txttitulo.Style = (Style)Application.Current.Resources["ModernTextBlockTitulos"];
-            MainStackPanel.Children.Add(txttitulo);
-
-
-            if (_rutinasPathListInactivas.Length > 0 || _rutinasPathListActivas.Length > 0)
+            StackPanel stk = new StackPanel();
+            stk.Margin = new Thickness(10, 10, 10, 10);
+            if (ManejadorTextos.EjerciciosPathList().Length > 0)
             {
-
-                TextBlock txt1 = new();
-                txt1.Text = "Ejercicios Activos";
-                txt1.Style = (Style)Application.Current.Resources["SubtitulosRutinas"];
-
-                MainStackPanel.Children.Add(txt1);
-                GenerarRutinasActivas();
-
-                TextBlock txt2 = new();
-                txt2.Text = "EjerciciosInactivos";
-                txt2.Style = (Style)Application.Current.Resources["SubtitulosRutinas"];
-
-                MainStackPanel.Children.Add(txt2);
-                GenerarRutinasInactivas();
-
+                Secciones.GenerarSubTitulos("Ejercicios activos", stk);
+                stk.Children.Add(GenerarEjercicios());
             }
             else
-            {
-                TextBlock noRutinas = new TextBlock();
-                noRutinas.Text = "No hay rutinas aún, pero nunca es mal momento para agregar una. :)";
-                noRutinas.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
+                Secciones.GenerarSubTitulos("No hay ejercicios aún, pero nunca es mal momento para agregar una. :)", stk);
+            MainStackPanel.Children.Add(stk);
 
-                Button agregarRutinas = new Button();
-                agregarRutinas.Content = "Agregar rutina";
-                agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
-                agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-
-                MainStackPanel.Children.Add(noRutinas);
-                MainStackPanel.Children.Add(agregarRutinas);
-            }
-            Button agregarRutina= new Button();
-            agregarRutina.Content = "Agregar ejercicio";
-            agregarRutina.Click += AgregarRutina_Click;
-            MainStackPanel.Children.Add(agregarRutina);
         }
-        Frame _mainPage;
-        string[] _rutinasPathListActivas;
-        string[] _rutinasPathListInactivas;
+        Frame _mainFrame;
 
-        private void AgregarRutina_Click(object sender, RoutedEventArgs e) => _mainPage.Content = new AgregarEjerciciosPag(_mainPage);
-
-        public void GenerarRutinasActivas()
+        public Grid GenerarEjercicios(string rutinasEstado)
         {
-            if (_rutinasPathListActivas.Length > 0)
+            Grid grd = new();
+            grd.Margin = new Thickness(5, 0, 5, 0);
+
+            ComboBox cb = new();
+
+            string[] pathEjercicios = ManejadorTextos.EjerciciosPathList();
+            for (int i = 0; i < pathEjercicios.Length; i++)
             {
-                //hacer esto un metodo y hacerlo que lea rutinas activas e inactivas
-                foreach (string rutinaPath in ManejadorTextos.RutinasActivasPathList())
+                string ejercicioPath = pathEjercicios[i];
+                string[] pathRutinasActivas = ManejadorTextos.RutinasActivasPathList();
+                for (int j = 0; j < pathRutinasActivas.Length;j++)
                 {
-                    if (ManejadorTextos.LeerPathEjercicios(rutinaPath).Length > 0)
-                    {
-                        foreach (string ejercicioPath in ManejadorTextos.LeerPathEjercicios(rutinaPath))
+                    string[] pathsEjerciciosEnRutina = ManejadorTextos.LeerPathsEjerciciosEnRutina(pathRutinasActivas[j]);     
+                    foreach(string path in pathsEjerciciosEnRutina) 
+                        if(path == pathEjercicios[i]) 
                         {
-                            Grid grd = new();
-                            grd.Height = 100;
-                            
-                            Secciones.GenerarTextoNormal(ManejadorTextos.LeerNombreEjercicio(ejercicioPath) + " en " + ManejadorTextos.LeerNombreRutina(rutinaPath), grd);
-
-                            Button eliminar = new Button();
-                            eliminar.Content = "Eliminar";
-                            eliminar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-                            eliminar.Click += new RoutedEventHandler(EditarRutina_Click);
-                            grd.Children.Add(eliminar);
-
-                            Button editar = new Button();
-                            editar.Content = "Editar" + $" {ManejadorTextos.LeerNombreEjercicio(ejercicioPath)}";
-                            editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-                            editar.Click += new RoutedEventHandler(EditarRutina_Click);
-                            grd.Children.Add(editar);
-
-                            MainStackPanel.Children.Add(grd);
-
-                            Button agregarRutinas = new Button();
-                            agregarRutinas.Content = "Agregar rutina";
-                            agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-                            agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
-
-                            //rpMainGrid.Children.Add(agregarRutinas);
+                            ComboBoxItem cbi = new();
+                            cbi.Content= ManejadorTextos.LeerNombreRutina(pathRutinasActivas[j]);
+                            cb.Items.Add(cbi);
                         }
-                    }
                 }
-            }
-            else
-            {
-                TextBlock txb = new TextBlock();
-                txb.Text = "Aun no hay rutinas activas.";
-                txb.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
-                MainStackPanel.Children.Add(txb);
-            }
-        }
-
-        public void GenerarRutinasInactivas()
-        {
-            if (_rutinasPathListInactivas.Length > 0)
-            {
-                //hacer esto un metodo y hacerlo que lea rutinas activas e inactivas
-                foreach (string f in ManejadorTextos.RutinasInactivasPathList())
+                string[] pathRutinasInactivas = ManejadorTextos.RutinasActivasPathList();
+                for (int j = 0; j < pathRutinasInactivas.Length; j++)
                 {
-                    TextBlock nombre = new TextBlock();
-                    nombre.Text = ManejadorTextos.LeerNombreRutina(f);
-                    nombre.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
-
-                    Button editar = new Button();
-                    editar.Content = "Editar" + $" {nombre.Text}";
-                    editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-                    editar.Click += new RoutedEventHandler(EditarRutina_Click);
-
-                    Grid grd = new();
-                    grd.Height = 30;
-                    grd.MaxHeight = 100;
-
-                    grd.Children.Add(nombre);
-                    grd.Children.Add(editar);
-
-                    MainStackPanel.Children.Add(grd);
-
-                    Button agregarRutinas = new Button();
-                    agregarRutinas.Content = "Agregar Rutina";
-                    agregarRutinas.Foreground = new SolidColorBrush(Colors.White);
-
-                    agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-                    agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
-
-                    //rpMainGrid.Children.Add(agregarRutinas);
+                    string[] pathsEjerciciosEnRutina = ManejadorTextos.LeerPathsEjerciciosEnRutina(pathRutinasInactivas[j]);
+                    foreach (string path in pathsEjerciciosEnRutina)
+                        if (path == pathEjercicios[i])
+                        {
+                            ComboBoxItem cbi = new();
+                            cbi.Content = ManejadorTextos.LeerNombreRutina(pathRutinasInactivas[j]) + "*";
+                            cb.Items.Add(cbi);
+                        }
                 }
             }
-            else
-            {
-                TextBlock txb = new TextBlock();
-                txb.Text = "No hay rutinas inactivas.";
-                txb.Style = (Style)Application.Current.Resources["RutinasTextBlockStyle"];
-                MainStackPanel.Children.Add(txb);
-            }
-        }
-
-        public void EditarRutina_Click(object sender, RoutedEventArgs e)
-        {
-            var objeto = e.Source;
-            _mainPage.Content = new EditarRutinaPag(_mainPage, objeto.ToString()[39..]);
-        }
-
-        public void BorrarRutina_Click(Object sender, RoutedEventArgs e)
-        {
-            var objeto = e.Source;
-            string nombreRutina = objeto.ToString()[39..];
-            ManejadorTextos.BorrarArchivo(ManejadorTextos.LeerPathRutina(objeto.ToString()[39..]));
-        }
-
-        public void AgregarRutinas_click(object sender, RoutedEventArgs e)
-        {
-            _mainPage.Content = new AgregarRutinaPag(_mainPage);
         }
     }
 }

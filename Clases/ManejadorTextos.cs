@@ -38,7 +38,7 @@ namespace HIITT.Clases
             return valor;
         }
 
-        public string[] EjerciciosPathList()
+        public static string[] EjerciciosPathList()
         {
             Uri myUri = new Uri(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\ejercicios\", UriKind.RelativeOrAbsolute);
             string path = myUri.ToString();
@@ -137,7 +137,7 @@ namespace HIITT.Clases
                 return true;
             else return false;
         }
-        public static string[] LeerPathEjercicios(string pathRutina)
+        public static string[] LeerPathsEjerciciosEnRutina(string pathRutina)
         {
             List<string> pathsEjercicios = new();
             string pathEjercicio;
