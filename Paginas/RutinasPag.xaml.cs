@@ -46,7 +46,6 @@ namespace HIITT.Paginas
         public Grid GenerarRutinas(string rutinasEstado)
         {
             Grid grd = new();
-            // grd.Height = 130;
             grd.Margin = new Thickness(5, 0, 5, 0);
 
             string[] pathRutinas = new string[0];

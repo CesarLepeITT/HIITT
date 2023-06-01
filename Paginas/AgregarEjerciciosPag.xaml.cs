@@ -147,6 +147,7 @@ namespace HIITT.Paginas
                 DefinirRutinaAlmacenadora();
                 tbAENombre.Text = _rutinaAlmacenadora;
                 ManejadorTextos.AgregarPathEjercicioARutina(_nombreEjercicio,_rutinaAlmacenadora);
+                _MainFrame.Content = new RutinasPag(_MainFrame);            
             }
         }
 
