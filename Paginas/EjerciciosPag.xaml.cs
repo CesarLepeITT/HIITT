@@ -24,15 +24,15 @@ namespace HIITT.Paginas
     {
         public EjerciciosPag(Frame mainPage)
         {
-            _mainFrame = mainPage;
             InitializeComponent();
+            _mainFrame = mainPage;
 
             StackPanel stk = new StackPanel();
             stk.Margin = new Thickness(10, 10, 10, 10);
             if (ManejadorTextos.EjerciciosPathList().Length > 0)
             {
-                Secciones.GenerarSubTitulos("Ejercicios activos", stk);
-                //stk.Children.Add(GenerarEjercicios());
+                Secciones.GenerarSubTitulos("Ejercicios", stk);
+                stk.Children.Add(GenerarEjercicios());
             }
             else
                 Secciones.GenerarSubTitulos("No hay ejercicios aún, pero nunca es mal momento para agregar una. :)", stk);
@@ -41,7 +41,7 @@ namespace HIITT.Paginas
         }
         Frame _mainFrame;
 
-        public Grid GenerarEjercicios(string rutinasEstado)
+        public Grid GenerarEjercicios()
         {
             Grid grd = new();
             grd.ColumnDefinitions.Add(new ColumnDefinition());
@@ -64,21 +64,22 @@ namespace HIITT.Paginas
                 stk.Orientation = Orientation.Horizontal;
 
                 ComboBox cb = new();
+                cb.Width = 175;
 
-                string ejercicioPath = pathEjercicios[i];
+              
                 string[] pathRutinasActivas = ManejadorTextos.RutinasActivasPathList();
                 for (int j = 0; j < pathRutinasActivas.Length;j++)
                 {
-                    string[] pathsEjerciciosEnRutina = ManejadorTextos.LeerPathsEjerciciosEnRutina(pathRutinasActivas[j]);     
-                    foreach(string path in pathsEjerciciosEnRutina) 
-                        if(path == pathEjercicios[i]) 
+                    string[] pathsEjerciciosEnRutina = ManejadorTextos.LeerPathsEjerciciosEnRutina(pathRutinasActivas[j]);
+                    foreach (string path in pathsEjerciciosEnRutina)
+                        if (path == pathEjercicios[i]) 
                         {
                             ComboBoxItem cbi = new();
                             cbi.Content= ManejadorTextos.LeerNombreRutina(pathRutinasActivas[j]);
                             cb.Items.Add(cbi);
                         }
                 }
-                string[] pathRutinasInactivas = ManejadorTextos.RutinasActivasPathList();
+                string[] pathRutinasInactivas = ManejadorTextos.RutinasInactivasPathList();
                 for (int j = 0; j < pathRutinasInactivas.Length; j++)
                 {
                     string[] pathsEjerciciosEnRutina = ManejadorTextos.LeerPathsEjerciciosEnRutina(pathRutinasInactivas[j]);
@@ -92,18 +93,21 @@ namespace HIITT.Paginas
                 }
 
                 Button editar = new Button();
-                editar.Content = "Editar" + $" {ManejadorTextos.LeerNombreRutina(ejercicioPath)}";
+                editar.Content = "Editar" + $" {ManejadorTextos.LeerNombreRutina(pathEjercicios[i])}";
                 editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                 editar.Click += new RoutedEventHandler(EditarEjercicicio_Click);
                 editar.Width = 47;
+                editar.Margin = new Thickness(10, 0, 0, 0);
+
 
                 Button eliminar = new Button();
-                eliminar.Content = "Eliminar" + $" {ManejadorTextos.LeerNombreRutina(ejercicioPath)}";
+                eliminar.Content = "Eliminar" + $" {ManejadorTextos.LeerNombreRutina(pathEjercicios[i])}";
                 eliminar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                 eliminar.Click += new RoutedEventHandler(EliminarEjercicio_Click);
                 eliminar.Width = 65;
                 eliminar.Margin = new Thickness(10, 0, 0, 0);
 
+                cb.SelectedIndex = 0;
                 stk.Children.Add(cb);
                 stk.Children.Add(editar);
                 stk.Children.Add(eliminar);
@@ -118,21 +122,32 @@ namespace HIITT.Paginas
         }
         public void EditarEjercicicio_Click(object sender, RoutedEventArgs e)
         {
-            //var objeto = e.Source;
-            //_mainFrame.Content = new EditarEjercicioPag(_mainFrame, objeto.ToString()[39..]);
+            var objeto = e.Source;
+            _mainFrame.Content = new EditarEjercicioPag(_mainFrame, objeto.ToString()[39..]);
         }
 
         public void EliminarEjercicio_Click(object sender, RoutedEventArgs e)
         {
-            ////No implementado
-            //var objeto = e.Source;
-            //ManejadorTextos.BorrarArchivo(ManejadorTextos.LeerPathRutina(objeto.ToString()[41..]));
-            //_mainFrame.Content = new RutinasPag(_mainFrame);
+            var objeto = e.Source;
+            string pathEjercicio = ManejadorTextos.LeerPathEjercicio(objeto.ToString()[41..]);
+
+            foreach (string pathRutina in ManejadorTextos.RutinasActivasPathList())
+            {
+                if (ManejadorTextos.LeerExisteEjercicioEnRutina(pathRutina, pathEjercicio))
+                    ManejadorTextos.BorrarEjercicioEnRutina(pathRutina, pathEjercicio);
+            }
+            foreach (string pathRutina in ManejadorTextos.RutinasInactivasPathList())
+            {
+                if (ManejadorTextos.LeerExisteEjercicioEnRutina(pathRutina, pathEjercicio))
+                    ManejadorTextos.BorrarEjercicioEnRutina(pathRutina, pathEjercicio);
+            }
+
+            ManejadorTextos.BorrarArchivo(pathEjercicio);
+            _mainFrame.Content = new EjerciciosPag(_mainFrame);
         }
-        public void AgregarRutinas_click(object sender, RoutedEventArgs e)
+        public void AgregarEjercicios_Click(object sender, RoutedEventArgs e)
         {
-            ////No implementado
-            //_mainFrame.Content = new AgregarRutinaPag(_mainFrame);
+            _mainFrame.Content = new AgregarEjerciciosPag(_mainFrame);
         }
     }
 }

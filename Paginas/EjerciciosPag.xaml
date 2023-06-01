@@ -11,7 +11,7 @@
         <StackPanel>
             <StackPanel x:Name="MainStackPanel" Grid.Row="0"/>
             <!-- No tiene evento -->
-            <Button Content="Agregar Ejercicio" Style="{StaticResource EstiloBotonesRutinas}" Width="200" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,20,0"/>
+            <Button Content="Agregar Ejercicio" Style="{StaticResource EstiloBotonesRutinas}" Width="200" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,20,0" Click="AgregarEjercicios_Click"/>
         </StackPanel>
     </ScrollViewer>
 </Page>

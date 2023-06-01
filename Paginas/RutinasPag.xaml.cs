@@ -73,14 +73,11 @@ namespace HIITT.Paginas
                     StackPanel stk = new();
                     stk.Orientation = Orientation.Horizontal;
 
-                    //Editar estilo de los botones
-                    //Editar width para que solos se vea editar/eliminar
                     Button editar = new Button();
                     editar.Content = "Editar" + $" {ManejadorTextos.LeerNombreRutina(pathRutina)}";
                     editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
                     editar.Click += new RoutedEventHandler(EditarRutina_Click);
                     editar.Width = 47;
-                    // editar.Margin= new Thickness(0, 0, 10, 0);
 
                     Button eliminar = new Button();
                     eliminar.Content = "Eliminar" + $" {ManejadorTextos.LeerNombreRutina(pathRutina)}";

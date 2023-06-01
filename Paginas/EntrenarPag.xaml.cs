@@ -39,7 +39,6 @@ namespace GimApp
         {
             StackPanel stck = new();
             SolidColorBrush myBrush = new SolidColorBrush(Colors.Lavender);
-            //myBrush.Opacity = 0.5;
             stck.Background = myBrush;
             stck.Margin = new Thickness(10, 10, 10, 10);
             Secciones.GenerarSubTitulos("No hay ejercicios asignados al dia de hoy.", stck);
@@ -58,10 +57,8 @@ namespace GimApp
         {
             foreach (string path in pathsEjercicios)
             {
-                _bandera = true;
                 StackPanel stck = new();
                 SolidColorBrush myBrush = new SolidColorBrush(Colors.Lavender);
-                //myBrush.Opacity = 0.5;
                 stck.Background = myBrush;
                 Secciones.GenerarTextoNormal("Nombre: "+ ManejadorTextos.LeerNombreEjercicio(path), stck);
                 stck.Children.Add(Secciones.GenerarGridDosTextBlock(Secciones.GenerarTextoNormal("Series: " + ManejadorTextos.LeerSeriesEjercicio(path)), Secciones.GenerarTextoNormal("Repeticones: " + ManejadorTextos.LeerRepeticionesEjercicio(path))));

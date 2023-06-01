@@ -175,5 +175,36 @@ namespace HIITT.Clases
                 File.AppendAllText(pathRutina, pathEjercicio+"\n");
             }
         }
+
+        public static bool LeerExisteEjercicioEnRutina(string pathRutina, string pathEjercicio)
+        {
+            using (FileStream fs = File.OpenRead(pathRutina))
+            {
+                foreach (string lines in File.ReadAllLines(pathRutina))
+                    if (lines == pathEjercicio)
+                        return true;
+            }
+            return false;
+        }
+        public static void BorrarEjercicioEnRutina(string pathRutina, string pathEjercicio)
+        {
+            //Uri uriTemp = new(AppDomain.CurrentDomain.BaseDirectory + $@"..\..\..\saves\temp.txt");
+            //string pathTemp = uriTemp.ToString();
+            //pathTemp = pathTemp.Substring(8);
+            //File.Create(pathTemp);
+            //foreach (string lines in File.ReadAllLines(pathRutina))
+            //    if (!(lines == pathEjercicio))
+            //    {
+            //        //File.AppendAllText(pathTemp, lines + "\n");
+            //        using (FileStream fs = File.OpenWrite(pathTemp))
+            //        {
+            //            fs.Close();
+            //            File.AppendAllText(pathTemp, pathEjercicio + "\n");
+            //        }
+            //    }
+            //File.AppendAllText(pathEjercicio, string.Empty);
+            //File.AppendAllText(pathEjercicio, File.ReadAllText(pathTemp));
+            //File.Delete(pathTemp);
+        }
     }
 }

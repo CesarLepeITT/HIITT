@@ -7,8 +7,38 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EditarEjercicioPag">
-
-    <Grid>
-        
-    </Grid>
+    <ScrollViewer>
+        <Grid x:Name="gridMainGrid" >
+            <StackPanel x:Name="sckpMainStackPanel" Margin="10">
+                <TextBlock Text="Editar Ejercicio" Style="{StaticResource Titulosss}"/>
+                <TextBlock Text="Nombre " Style="{StaticResource TextoNormal}"/>
+                <TextBox x:Name="tbAENombre" TextChanged="tbStr_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10" />
+                <TextBlock Text="Repeticiones " Style="{StaticResource TextoNormal}"/>
+                <TextBox x:Name="tbAERepeticiones" TextChanged="tbInt_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Series " Style="{StaticResource TextoNormal}"/>
+                <TextBox x:Name="tbAESeries" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Peso " Style="{StaticResource TextoNormal}"/>
+                <TextBox x:Name="tbAEPesoCantidad" TextChanged="tbDecimal_TextChanged" Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Unidades" Style="{StaticResource TextoNormal}"/>
+                <ComboBox x:Name="cbAEUnidades" Height="30" >
+                    <ComboBoxItem x:Name="cbiAEkg" Content="Kilogramos"/>
+                    <ComboBoxItem x:Name="cbiAElbs" Content="Libras"/>
+                </ComboBox>
+                <TextBlock Text="Maquinaria " Style="{StaticResource TextoNormal}"/>
+                <TextBox x:Name="tbAEMaquinaria"  Style="{StaticResource ModernTextBoxStyle}" TextChanged="tbAEMaquinaria_TextChanged"/>
+                <TextBlock Text="Grupo muscular " Style="{StaticResource TextoNormal}"/>
+                <TextBox x:Name="tbAEGrupoMuscular"  Style="{StaticResource ModernTextBoxStyle}" Height="10"/>
+                <TextBlock Text="Rutina Contenedora" Style="{StaticResource TextoNormal}"/>
+                <ComboBox x:Name="cbAERutinaContenedora" Height="30" SelectionChanged="cbAERutinaContenedora_SelectionChanged">
+                    <ComboBoxItem x:Name="cbiAEAgregarRutina" Content="Agregar Rutina"/>
+                </ComboBox>
+                <Button x:Name="btnAEAgregarEjercicio" Style="{StaticResource EstiloBotonesRutinas}" Content="Agregar ejercico" Height="40" Width="150" Margin="0,20,0,20" Click="btnAEAgregarEjercicio_Click"/>
+            </StackPanel>
+            <Grid x:Name="gridError" Visibility="Hidden" Height="300" Width="200" Panel.ZIndex="1" Background="White">
+                <TextBlock Text="Error" HorizontalAlignment="Center" FontSize="20" FontWeight="Black" FontFamily="Yu Gothic UI"/>
+                <TextBlock x:Name="ErrorGridText" TextWrapping="WrapWithOverflow" Margin="20,40,20,0" VerticalAlignment="Top"/>
+                <Button x:Name="ErrorGridAceptar" Content="Aceptar" Width="100" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,20" Click="ErrorGridAceptar_Click"/>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

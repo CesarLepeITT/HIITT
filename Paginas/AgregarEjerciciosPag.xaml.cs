@@ -122,8 +122,6 @@ namespace HIITT.Paginas
             _grupoMuscular = tbAEGrupoMuscular.Text;
 
             if (cbAERutinaContenedora.SelectedIndex == -1) DesplegarPaginaError("Debes seleccionar una rutina.", cbAERutinaContenedora);
-            else { }// TODO: Agregar una manera de meter el nuevo ejercicio creado a una rutina
-
         }
 
         private bool RevisarSiTodoCorrecto()
@@ -147,7 +145,7 @@ namespace HIITT.Paginas
                 DefinirRutinaAlmacenadora();
                 tbAENombre.Text = _rutinaAlmacenadora;
                 ManejadorTextos.AgregarPathEjercicioARutina(_nombreEjercicio,_rutinaAlmacenadora);
-                _MainFrame.Content = new RutinasPag(_MainFrame);            
+                _MainFrame.Content = new EjerciciosPag(_MainFrame);            
             }
         }
 
