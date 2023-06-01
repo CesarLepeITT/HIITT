@@ -1,0 +1,3 @@
+Nombre = Rutina(1)(2)
+Activa = False
+Dia = Sunday

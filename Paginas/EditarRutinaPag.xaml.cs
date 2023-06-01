@@ -31,10 +31,10 @@ namespace HIITT.Paginas
 
             patas.Text = _pathRutina;
             patas2.Text = _nombre;
-            //_dia = ManejadorTextos.LeerDiaRutinadayToOfWeek(_pathRutina);
-            //_activa = ManejadorTextos.LeerEsActivaRutinaToBool(_pathRutina);
+            _dia = ManejadorTextos.LeerDiaRutinadayToOfWeek(_pathRutina);
+            _activa = ManejadorTextos.LeerEsActivaRutinaToBool(_pathRutina);
 
-            //AsignarValoresDeRutina();
+            AsignarValoresDeRutina();
         }
         Frame _mainFrame;
         string _nombre;
@@ -94,6 +94,7 @@ namespace HIITT.Paginas
         {
             if (TodoBien())
             {
+                ManejadorTextos.BorrarArchivo(_pathRutina);
                 _ = new Rutinas(_nombre, _activa, _dia);
                 _mainFrame.Content = new RutinasPag(_mainFrame);
             }
