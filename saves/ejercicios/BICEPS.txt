@@ -1,0 +1,8 @@
+Nombre = BICEPS
+Series = 2
+Repeticiones = 13
+PesoCantidad = 99
+PesoUnidad = kg
+Maquiaria = BARRA
+GrupoMuscular = 21
+Path = C:/Users/52664/Desktop/hit7/saves/ejercicios/BICEPS.txt

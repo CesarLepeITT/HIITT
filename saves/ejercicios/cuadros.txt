@@ -1,0 +1,8 @@
+Nombre = cuadros
+Series = 10
+Repeticiones = 4
+PesoCantidad = 11
+PesoUnidad = kg
+Maquiaria = barras
+GrupoMuscular = 111
+Path = C:/Users/52664/Desktop/hit7/saves/ejercicios/cuadros.txt

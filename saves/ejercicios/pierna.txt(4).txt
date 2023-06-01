@@ -1,0 +1,8 @@
+Nombre = pierna
+Series = 44
+Repeticiones = 5
+PesoCantidad = 555
+PesoUnidad = kg
+Maquiaria = nh
+GrupoMuscular = hh
+Path = C:/Users/52664/Desktop/hit7/saves/ejercicios/pierna.txt(4).txt

@@ -5,11 +5,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 namespace HIITT.Clases
-{
+{//
     internal class Verificador
     {
-        // Comprueba si una textbox tiene solo letras
-        public static bool SoloLetras(string texto) => Regex.IsMatch(texto, @"[^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]*$");
+        // Comprueba si una textbox tiene solo letras                               @"^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$");
+        public static bool SoloLetras(string texto) => Regex.IsMatch(texto, @"^[A-Za-zñÑáéíóúÁÉÍÓÚ\s]+$");
         //Comprueba si una textbox tiene solo numeros
         public static bool SoloNumeros(string texto) => Regex.IsMatch(texto, @"^[0-9]");
 

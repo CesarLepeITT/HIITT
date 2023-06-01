@@ -1,0 +1,8 @@
+Nombre = SENTADILLAS
+Series = 10
+Repeticiones = 5
+PesoCantidad = 99
+PesoUnidad = kg
+Maquiaria = 22
+GrupoMuscular = 2
+Path = C:/Users/52664/Desktop/hit7/saves/ejercicios/SENTADILLAS.txt
