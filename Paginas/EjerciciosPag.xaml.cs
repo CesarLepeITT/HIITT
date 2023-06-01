@@ -32,7 +32,7 @@ namespace HIITT.Paginas
             if (ManejadorTextos.EjerciciosPathList().Length > 0)
             {
                 Secciones.GenerarSubTitulos("Ejercicios activos", stk);
-                stk.Children.Add(GenerarEjercicios());
+                //stk.Children.Add(GenerarEjercicios());
             }
             else
                 Secciones.GenerarSubTitulos("No hay ejercicios aún, pero nunca es mal momento para agregar una. :)", stk);
@@ -44,13 +44,27 @@ namespace HIITT.Paginas
         public Grid GenerarEjercicios(string rutinasEstado)
         {
             Grid grd = new();
+            grd.ColumnDefinitions.Add(new ColumnDefinition());
+            grd.ColumnDefinitions.Add(new ColumnDefinition());
             grd.Margin = new Thickness(5, 0, 5, 0);
-
-            ComboBox cb = new();
 
             string[] pathEjercicios = ManejadorTextos.EjerciciosPathList();
             for (int i = 0; i < pathEjercicios.Length; i++)
             {
+                RowDefinition rd = new RowDefinition();
+                rd.Height = new GridLength(35);
+                grd.RowDefinitions.Add(rd);
+
+                TextBlock txb = Secciones.GenerarTextoNormal($"{ManejadorTextos.LeerNombreEjercicio(pathEjercicios[i])}");
+                Grid.SetColumn(txb, 0);
+                Grid.SetRow(txb, i);
+                grd.Children.Add(txb);
+
+                StackPanel stk = new();
+                stk.Orientation = Orientation.Horizontal;
+
+                ComboBox cb = new();
+
                 string ejercicioPath = pathEjercicios[i];
                 string[] pathRutinasActivas = ManejadorTextos.RutinasActivasPathList();
                 for (int j = 0; j < pathRutinasActivas.Length;j++)
@@ -76,7 +90,49 @@ namespace HIITT.Paginas
                             cb.Items.Add(cbi);
                         }
                 }
+
+                Button editar = new Button();
+                editar.Content = "Editar" + $" {ManejadorTextos.LeerNombreRutina(ejercicioPath)}";
+                editar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
+                editar.Click += new RoutedEventHandler(EditarEjercicicio_Click);
+                editar.Width = 47;
+
+                Button eliminar = new Button();
+                eliminar.Content = "Eliminar" + $" {ManejadorTextos.LeerNombreRutina(ejercicioPath)}";
+                eliminar.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
+                eliminar.Click += new RoutedEventHandler(EliminarEjercicio_Click);
+                eliminar.Width = 65;
+                eliminar.Margin = new Thickness(10, 0, 0, 0);
+
+                stk.Children.Add(cb);
+                stk.Children.Add(editar);
+                stk.Children.Add(eliminar);
+
+                stk.HorizontalAlignment = HorizontalAlignment.Right;
+                Grid.SetColumn(stk, 1);
+                Grid.SetRow(stk, i);
+                grd.Children.Add(stk);
+
             }
+            return grd;
+        }
+        public void EditarEjercicicio_Click(object sender, RoutedEventArgs e)
+        {
+            //var objeto = e.Source;
+            //_mainFrame.Content = new EditarEjercicioPag(_mainFrame, objeto.ToString()[39..]);
+        }
+
+        public void EliminarEjercicio_Click(object sender, RoutedEventArgs e)
+        {
+            ////No implementado
+            //var objeto = e.Source;
+            //ManejadorTextos.BorrarArchivo(ManejadorTextos.LeerPathRutina(objeto.ToString()[41..]));
+            //_mainFrame.Content = new RutinasPag(_mainFrame);
+        }
+        public void AgregarRutinas_click(object sender, RoutedEventArgs e)
+        {
+            ////No implementado
+            //_mainFrame.Content = new AgregarRutinaPag(_mainFrame);
         }
     }
 }
