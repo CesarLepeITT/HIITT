@@ -84,11 +84,13 @@ namespace GimApp
 
             Button btn = new()
             {
-                Height= 50,
-                Width= 150,
+                Height = 35,
+                Width = 150,
                 HorizontalAlignment = HorizontalAlignment.Center,
-                //Margin = new Thickness(40, 10, 120, 0),
+                Content = "Agregar rutina",
+                Margin = new Thickness(0,10,0,0),
             };
+            btn.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
             btn.Click += AgregarRutina;
             Grid.SetRow(btn, 1);
 

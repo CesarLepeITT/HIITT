@@ -28,10 +28,13 @@ namespace HIITT.Paginas
             _mainFrame = MainFrame;
             _nombre = nombreRutina;
             _pathRutina = ManejadorTextos.LeerPathRutina(_nombre);
-            _dia = ManejadorTextos.LeerDiaRutinadayToOfWeek(_pathRutina);
-            _activa = ManejadorTextos.LeerEsActivaRutinaToBool(_pathRutina);
 
-            AsignarValoresDeRutina();
+            patas.Text = _pathRutina;
+            patas2.Text = _nombre;
+            //_dia = ManejadorTextos.LeerDiaRutinadayToOfWeek(_pathRutina);
+            //_activa = ManejadorTextos.LeerEsActivaRutinaToBool(_pathRutina);
+
+            //AsignarValoresDeRutina();
         }
         Frame _mainFrame;
         string _nombre;
