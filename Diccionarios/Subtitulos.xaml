@@ -4,8 +4,13 @@
         <Setter Property="FontSize" Value="24"/>
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="Foreground" Value="Gray"/>
-        <Setter Property="Margin" Value="40,10,120,5"/>
+        <!--<Setter Property="Margin" Value="40,10,120,5"/>-->
         <Setter Property="Background" Value="Lavender"/>
     </Style>
-
+    <Style TargetType="TextBlock" x:Key="Subtitulos2">
+        <Setter Property="FontSize" Value="24"/>
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="Foreground" Value="Gray"/>
+        <!--<Setter Property="Margin" Value="40,10,120,5"/>-->
+    </Style>
 </ResourceDictionary>

@@ -7,7 +7,7 @@
         <Setter Property="FontSize" Value="30" />
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="Margin" Value="20,10,55,0" />
+        <!--<Setter Property="Margin" Value="20,10,55,0" />-->
         <Setter Property="Opacity" Value="0.8" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextWrapping" Value="NoWrap" />

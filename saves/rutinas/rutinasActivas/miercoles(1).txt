@@ -1,3 +1,0 @@
-Nombre = miercoles(1)
-Activa = True
-Dia = Wednesday

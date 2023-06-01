@@ -1,3 +1,0 @@
-Nombre = juevez(2)
-Activa = False
-Dia = Thursday

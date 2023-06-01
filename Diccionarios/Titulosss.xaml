@@ -5,7 +5,7 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="Black"/>
-        <Setter Property="Margin" Value="40,30,120,15"/>
+        <!--<Setter Property="Margin" Value="40,30,120,15"/>-->
         <Setter Property="Background" Value="Gold"/>
     </Style>
 
