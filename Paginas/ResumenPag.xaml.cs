@@ -24,7 +24,6 @@ namespace GimApp
     {
         public ResumenPag(Frame mainPage)
         {
-
             InitializeComponent();
             _mainFrame = mainPage;
             GenerarDia("Hoy");
@@ -35,12 +34,15 @@ namespace GimApp
 
         public void GenerarDia(string dia)
         {
-            Secciones.GenerarSubTitulos(dia, MainStackPanel);
+            StackPanel stk = new();
+            stk.Margin = new Thickness(10,20,10,0);
+            stk.Children.Add(Secciones.GenerarSubTitulos(dia));
+            MainStackPanel.Children.Add(stk);
             string[] rutinasActivasPath = ManejadorTextos.RutinasActivasPathList();
             if (rutinasActivasPath.Length > 0)
                 GenerarRutinas(rutinasActivasPath, dia);
             else
-                GenerarNoRutinasHoy();
+                GenerarNoRutinas();
         }
 
         public void GenerarRutinas(string[] rutinasActivasPath, string dia)
@@ -58,58 +60,78 @@ namespace GimApp
         public void GenerarTextosRutinas(string path)
         {
             string nombre = ManejadorTextos.LeerNombreRutina(path);
-
-            TextBlock txb = new()
-            {
-                Text = nombre,
-                FontSize= 22,
-                Margin = new Thickness(40, 10, 120, 0),
-            };
+            TextBlock txb = new();
+            txb.Text = nombre;
+            txb.Style = (Style)Application.Current.Resources["TextoNormal"];
             Grid grd = new();
+            grd.Margin = new Thickness(15,0,10,0);
             grd.Children.Add(txb);
             MainStackPanel.Children.Add(grd);
         }
 
         // Cuando no hay rutinas
-        public void GenerarNoRutinasHoy()
+        public void GenerarNoRutinas()
         {
-            TextBlock txb = new()
-            {
-                Text = "No tienes rutinas activas, pero nunca es mal momento para agregar una o activar las disponibles.:)",
-                Margin = new Thickness(40, 10, 120, 0),
-            };
+            Grid grd = new();
+            grd.Margin=new Thickness(10,20,10,0);
+            grd.RowDefinitions.Add(new RowDefinition());
+            grd.RowDefinitions.Add(new RowDefinition());
+
+            TextBlock txb = new();
+            txb.Text = "No tienes rutinas activas, pero nunca es mal momento para agregar una o activar las disponibles.:)";
+            txb.Style = (Style)Application.Current.Resources["TextoNormal"];
+            Grid.SetRow(txb,0);
+
             Button btn = new()
             {
                 Height= 50,
                 Width= 150,
-                HorizontalAlignment = HorizontalAlignment.Right,
-                Margin = new Thickness(40, 10, 120, 0),
+                HorizontalAlignment = HorizontalAlignment.Center,
+                //Margin = new Thickness(40, 10, 120, 0),
             };
             btn.Click += AgregarRutina;
-            Grid grd = new();
+            Grid.SetRow(btn, 1);
+
             grd.Children.Add(txb);
             grd.Children.Add(btn);
 
             MainStackPanel.Children.Add(grd);
         }
+
         public void GenerarHorarioDiario()
         {
-            Secciones.GenerarTitulos("Horario Diario",MainStackPanel);
+            StackPanel stk = new();
+            stk.Margin = new Thickness(10, 20, 10, 0);
+
+            Secciones.GenerarSubTitulos("Horario Diario",stk);
             string[] rutinasActivas = ManejadorTextos.RutinasActivasPathList();
             string[] diasDeLaSemana = { "Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado" };
             string[] diasDeLaSemanaIngles = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
             for (int i = 0; i < 7; i++) {
-                Secciones.GenerarSubTitulos(diasDeLaSemana[i],MainStackPanel);
+                Grid grd = new();
+                grd.Margin = new Thickness(15,0,0,0);
+                grd.Children.Add(Secciones.GenerarSubTitulos2(diasDeLaSemana[i]));
+                stk.Children.Add(grd);
                 bool bandera = false;
                 foreach (string rutinaPath in rutinasActivas)
                     if (ManejadorTextos.LeerDiaRutina(rutinaPath) == diasDeLaSemanaIngles[i])
                     {
-                        Secciones.GenerarTextoNormal(ManejadorTextos.LeerNombreRutina(rutinaPath), MainStackPanel);
+                        StackPanel stk2 = new();
+                        stk2.Margin = new Thickness(25,0,0,0);
+                        Secciones.GenerarTextoNormal(ManejadorTextos.LeerNombreRutina(rutinaPath), stk2);
+                        stk.Children.Add(stk2);
                         bandera = true;
                     }
                 if (!bandera)
-                    Secciones.GenerarTextoNormal($"No hay rutinas asignadas al dia {diasDeLaSemana[i].ToLower()}", MainStackPanel);
+                {
+
+                    StackPanel stk2 = new();
+                    stk2.Margin = new Thickness(25, 0, 0, 0);
+                    Secciones.GenerarTextoNormal($"No hay rutinas asignadas al dia {diasDeLaSemana[i].ToLower()}", stk2);
+                    stk.Children.Add(stk2);
+                }
             }
+            MainStackPanel.Children.Add(stk);
         }
         private void AgregarRutina(object sender, RoutedEventArgs e)
         {

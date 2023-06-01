@@ -1,5 +1,4 @@
-﻿using GimApp.Paginas;
-using HIITT.Paginas;
+﻿using HIITT.Paginas;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,11 +41,11 @@ namespace GimApp
             }
             if (NavListBox.SelectedIndex == 2)
             {
-                MainPag.Content = new AgregarEjerciciosPag(MainPag);
+                MainPag.Content = new EjerciciosPag(MainPag);
             }
             if (NavListBox.SelectedIndex == 3)
             {
-               MainPag.Content = new RutinasPag(MainPag);
+                MainPag.Content = new RutinasPag(MainPag);
             } 
             if (NavListBox.SelectedIndex == 4)
             {

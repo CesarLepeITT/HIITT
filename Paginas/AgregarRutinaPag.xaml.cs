@@ -1,6 +1,6 @@
 ﻿using GimApp.Clases;
-using GimApp.Paginas;
 using System;
+using HIITT.Paginas;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

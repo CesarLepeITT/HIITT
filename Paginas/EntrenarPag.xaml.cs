@@ -31,10 +31,20 @@ namespace GimApp
             _bandera = false;
             GenerarEjercicios();
             if (!(_bandera))
-                Secciones.GenerarSubTitulos("No hay ejercicios asignados al dia de hoy.", MainStackPanel);
+                GenerarNoEjercicios();
         }
         Frame _mainFrame;
         bool _bandera;
+        public void GenerarNoEjercicios()
+        {
+            StackPanel stck = new();
+            SolidColorBrush myBrush = new SolidColorBrush(Colors.Lavender);
+            //myBrush.Opacity = 0.5;
+            stck.Background = myBrush;
+            stck.Margin = new Thickness(10, 10, 10, 10);
+            Secciones.GenerarSubTitulos("No hay ejercicios asignados al dia de hoy.", stck);
+            MainStackPanel.Children.Add(stck);
+        }
         public void GenerarEjercicios()
         {
             foreach (string rutinaPath in ManejadorTextos.RutinasActivasPathList())
@@ -50,11 +60,12 @@ namespace GimApp
             {
                 _bandera = true;
                 StackPanel stck = new();
-                Secciones.GenerarTextoNormal("Nombre: "+ManejadorTextos.LeerNombreEjercicio(path),stck);
-                Secciones.GenerarTextoNormal("Series: "+ManejadorTextos.LeerSeriesEjercicio(path),stck);
-                Secciones.GenerarTextoNormal("Repeticones: " +ManejadorTextos.LeerRepeticionesEjercicio(path),stck);
-                Secciones.GenerarTextoNormal("Peso: " + ManejadorTextos.LeerCantidadPesoEjercicio(path),stck);
-                Secciones.GenerarTextoNormal(ManejadorTextos.LeerUnidadPesoEjercicio(path),stck);
+                SolidColorBrush myBrush = new SolidColorBrush(Colors.Lavender);
+                //myBrush.Opacity = 0.5;
+                stck.Background = myBrush;
+                Secciones.GenerarTextoNormal("Nombre: "+ ManejadorTextos.LeerNombreEjercicio(path), stck);
+                stck.Children.Add(Secciones.GenerarGridDosTextBlock(Secciones.GenerarTextoNormal("Series: " + ManejadorTextos.LeerSeriesEjercicio(path)), Secciones.GenerarTextoNormal("Repeticones: " + ManejadorTextos.LeerRepeticionesEjercicio(path))));
+                stck.Children.Add(Secciones.GenerarGridDosTextBlock(Secciones.GenerarTextoNormal("Peso: " + ManejadorTextos.LeerCantidadPesoEjercicio(path)), Secciones.GenerarTextoNormal(ManejadorTextos.LeerUnidadPesoEjercicio(path))));
                 Secciones.GenerarTextoNormal("Maquinaria: " + ManejadorTextos.LeerMaquinariaEjercicio(path),stck);
                 Secciones.GenerarTextoNormal("Grupo muscular: "+ ManejadorTextos.LeerGrupoMuscularEjercicio(path),stck);
                 stck.Margin = new Thickness(10,10,10,10);

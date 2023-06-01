@@ -21,8 +21,10 @@ namespace HIITT.Clases
         GrupoMuscular = grupomuscularingresado
          */
 
-        public static void BorrarArchivo(string path) => File.Delete(path);
-
+        public static void BorrarArchivo(string path)
+        {
+            File.Delete(path);
+        }
         private static string LectorPropiedad(string path, string nombrePropiedad)
         {
             string valor = "Error";

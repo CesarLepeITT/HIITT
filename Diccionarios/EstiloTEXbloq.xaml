@@ -4,7 +4,7 @@
         
         <Setter Property="Foreground" Value="Black" />
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="Margin" Value="40,10,120,0" />
+        <!--<Setter Property="Margin" Value="40,10,120,0" />-->
         <Setter Property="Opacity" Value="0.8" />
         <Setter Property="TextTrimming" Value="CharacterEllipsis" />
         <Setter Property="TextWrapping" Value="NoWrap" />

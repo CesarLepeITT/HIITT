@@ -9,8 +9,6 @@
       Title="Ejercicios">
 
     <ScrollViewer>
-        <Grid>
-            <StackPanel x:Name="MainStackPanel" HorizontalAlignment="Center"/>
-        </Grid>
+        <StackPanel x:Name="MainStackPanel" Margin="10,10,10,10"/>
     </ScrollViewer>
 </Page>

@@ -1,8 +1,0 @@
-Nombre = Da
-Series = 1
-Repeticiones = 1
-PesoCantidad = 1
-PesoUnidad = kg
-Maquiaria = da
-GrupoMuscular = da
-Path = C:/Users/TecNM-ITT/Source/Repos/CesarLepeITT/HIITT/saves/ejercicios/Da.txt

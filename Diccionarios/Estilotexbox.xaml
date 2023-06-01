@@ -9,7 +9,7 @@
     <Setter Property="FontSize" Value="14" />
     <Setter Property="MinHeight" Value="30" />
     <Setter Property="MinWidth" Value="130" />
-        <Setter Property="Margin" Value="40,10,120,0" />
+        <!--<Setter Property="Margin" Value="40,10,120,0" />-->
 
         <Setter Property="Template">
         <Setter.Value>
