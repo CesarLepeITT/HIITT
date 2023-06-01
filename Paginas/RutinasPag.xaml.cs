@@ -38,14 +38,7 @@ namespace HIITT.Paginas
                 stk.Children.Add(GenerarRutinas("Inactivas"));
             }
             else
-            {
                 Secciones.GenerarSubTitulos("No hay rutinas aún, pero nunca es mal momento para agregar una. :)", stk);
-                Button agregarRutinas = new Button();
-                agregarRutinas.Content = "Agregar rutina";
-                agregarRutinas.Click += new RoutedEventHandler(AgregarRutinas_click);
-                agregarRutinas.Style = (Style)Application.Current.Resources["EstiloBotonesRutinas"];
-                stk.Children.Add(agregarRutinas);
-            }
             MainStackPanel.Children.Add(stk);
         }
         Frame _mainPage;
@@ -117,7 +110,7 @@ namespace HIITT.Paginas
         public void EditarRutina_Click(object sender, RoutedEventArgs e)
         {
             var objeto = e.Source;
-            _mainPage.Content = new EditarRutinaPag(_mainPage, objeto.ToString()[41..]);
+            _mainPage.Content = new EditarRutinaPag(_mainPage, objeto.ToString()[39..]);
         }
 
         public void EliminarRutina_Click(object sender, RoutedEventArgs e)
